@@ -1,15 +1,21 @@
 const {User} = require('../models')
 
-module.exports = {
-    getAllUser:async(req,res)=>{
-        try{
-            const data = await User.findAll()
-            res.json({
-                message:"success get all user",
-               data
-            })
-        }catch(err){
-            console.log(err)
-        }
+const getUserByToken = async (req, res) => {
+    try {
+        const { id } = req.payload;
+        const dataUser = await User.findByPk(id);
+
+        return res.status(200).json({
+            status: 200,
+            message: "Data user",
+            data: dataUser,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            status: 500,
+            message: error.message,
+        });
     }
-}
+};
+
+module.exports = { getUserByToken };

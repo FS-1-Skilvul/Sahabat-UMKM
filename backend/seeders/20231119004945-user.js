@@ -1,5 +1,5 @@
 'use strict';
-
+const bcrypt = require("bcrypt");
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -7,13 +7,13 @@ module.exports = {
       {
         name: 'admin',
         email: 'admin@gmail.com',
-        password:'123',
+        password: bcrypt.hashSync("123", 10),
         role: 'admin',
       },
       {
         name: 'riva',
         email: 'riva@gmail.com',
-        password:'123',
+        password: bcrypt.hashSync("123", 10),
         role: 'client',
       }
     ])
