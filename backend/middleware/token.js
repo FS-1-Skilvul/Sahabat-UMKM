@@ -10,7 +10,6 @@ const verifyToken = (req, res, next) => {
             message: "Undefined Header"
         });
     }
-
     const token = header.split(" ")[1];
 
     if (!token) {
@@ -19,8 +18,6 @@ const verifyToken = (req, res, next) => {
             message: "Invalid token"
         });
     }
-
-   
     try {
         const payload = jwt.verify(token,process.env.SECRET || key);
         req.payload = payload;
