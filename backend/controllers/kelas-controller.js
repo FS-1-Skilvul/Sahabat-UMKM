@@ -69,6 +69,28 @@ module.exports = {
     }
   },
 
+  getKelasByCategory: async (req, res) => {
+    const idCategory = req.params.id;
+
+    try {
+      const kelas = await Kelas.findAll({
+        where: {
+          id_kategori: idCategory,
+        },
+      });
+
+      res.json({
+        message: "Succes get kelas",
+        data: kelas,
+      });
+    } catch (error) {
+      res.status(500).json({
+        error: "Internal Server Error",
+        details: error.message,
+      });
+    }
+  },
+
   createKelas: async (req, res) => {
     const {
       nama_kelas,
