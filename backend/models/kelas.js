@@ -8,8 +8,15 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      // many to one relation with kategori table
       Kelas.belongsTo(models.Kategori_Kelas, {
         foreignKey: "id_kategori",
+      });
+
+      // many-to-many relation with user table using daftar_kelas as a junction table
+      Kelas.belongsToMany(models.User, {
+        through: "daftar_kelas",
+        foreignKey: "id_kelas",
       });
     }
   }
