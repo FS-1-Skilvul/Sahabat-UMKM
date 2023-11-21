@@ -12,20 +12,28 @@ export default {
       lg: ['18px', '21.94px'],
       xl: ['20px', '24.38px'],
       '2xl': ['24px', '29.26px'],
-      '3xl': ['28px', '50px'],
+      '3xl': ['35px', '50px'],
       '4xl': ['48px', '58px'],
+      '5xl': ['64px', '72px'],
+      '6xl': ['72px', '80px'],
+      '7xl': ['80px', '88px'],
       '8xl': ['96px', '106px']
     },
     extend: {
       fontFamily: {
+        poppins:['Poppins', 'sans-serif'],
         // palanquin: ['Palanquin', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
       },
       colors: {
         'primary': "#053B50",
         "secondary": "#176B87",
-        "slate-gray": "#6D6D6D",
-        "pale-blue": "#F5F6FF",
+        "blue-keuangan": "#8ECDDD",
+        "blue-manajemen": "#7091F5",
+        "tosca-desain": "#D4E2D4",
+        "purple-soft": "#D0BFFF",
+        "brown-desain": "#AC7D88",
+        "yellow-pemasaran": "#EBE76C",
         "white-400": "rgba(255, 255, 255, 0.80)"
       },
       boxShadow: {

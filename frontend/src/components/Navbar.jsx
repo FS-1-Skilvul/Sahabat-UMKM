@@ -3,7 +3,7 @@ import { navLinks } from "../constants";
 import { GiHamburgerMenu } from "react-icons/gi";
 function navbar() {
   return (
-    <header className="">
+    <header className="sticky top-0  shadow-md">
       <nav className=" flex justify-between items-center padding-x py-5 absolute z-10 w-full bg-secondary">
         <a href="/">
           <img src={logo} alt="logo" width={140} height={40} />
