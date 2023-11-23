@@ -4,20 +4,21 @@ import Manajemen from "../assets/icons/manajemen.png";
 import Pengembagan from "../assets/icons/softskil.png";
 import Kewirausahaan from "../assets/icons/kewirausahaan.png";
 import Desain from "../assets/icons/desain.png";
+// import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export const navLinks = [
-    { href: "#beranda", label: "Beranda" },
-    { href: "#cari-kelas", label: "Cari Kelas " },
-    { href: "#mentors", label: "Mentor" },
-    { href: "#tentang", label: "Tentang" },
+    { to: "/", label: "Beranda" },
+    { to: "/CariKelasPage", label: "Cari Kelas " },
+    { to: "/", label: "Mentor" },
+    { to: "/", label: "Tentang" },
 ];
 
 export const category = [
-    {title: "Keuangan", image: Keuangan,bg: "bg-blue-keuangan",jumlahKelas: "10"},
-    {title: "Manajemen", image: Manajemen,bg:"bg-blue-manajemen",jumlahKelas: "10"},
-    {title: "Pemasaran", image: Pemasaran,bg:"bg-yellow-pemasaran",jumlahKelas: "10"},
-    {title: "Pengembangan Diri", image: Pengembagan, bg:"bg-purple-soft",jumlahKelas: "10"},
-    {title: "Desain", image: Desain,bg:"bg-brown-desain", jumlahKelas: "10"},
-    {title: "Kewirausahaan", image: Kewirausahaan,bg:"bg-tosca-desain", jumlahKelas: "10"},
+    {title: "Keuangan",href:"" ,image: Keuangan,bg: "bg-blue-keuangan",jumlahKelas: "10"},
+    {title: "Manajemen",href:"/CariKelasPage" , image: Manajemen,bg:"bg-blue-manajemen",jumlahKelas: "10"},
+    {title: "Pemasaran",href:"" , image: Pemasaran,bg:"bg-yellow-pemasaran",jumlahKelas: "10"},
+    {title: "Pengembangan Diri", href:"" ,image: Pengembagan, bg:"bg-purple-soft",jumlahKelas: "10"},
+    {title: "Desain",href:"" , image: Desain,bg:"bg-brown-desain", jumlahKelas: "10"},
+    {title: "Kewirausahaan", href:"" , image: Kewirausahaan,bg:"bg-tosca-desain", jumlahKelas: "10"},
 
 ]

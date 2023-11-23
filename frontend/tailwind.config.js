@@ -33,6 +33,7 @@ export default {
         "tosca-desain": "#D4E2D4",
         "purple-soft": "#D0BFFF",
         "brown-desain": "#AC7D88",
+        "footer": "#164863",
         "yellow-pemasaran": "#EBE76C",
         "white-400": "rgba(255, 255, 255, 0.80)"
       },
