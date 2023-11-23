@@ -10,18 +10,21 @@ import KelasPopuler from "./sections/kelasPopuler";
 
 function App() {
   return (
-    <Router>
+    <>
+      {/* // <Router> */}
       <Navbar />
       <Hero />
 
       <Kategori />
       <KelasPopuler />
       <Footer />
-      <Routes>
-        {/* <Route path="/" element={<Beranda />} /> */}
+      {/* <Routes>
+        <Route path="/" element={<Beranda />} />
         <Route path="/CariKelasPage" element={<CariKelasPage />} />
-      </Routes>
-    </Router>
+        </Routes>
+        </Router>
+      */}
+    </>
   );
 }
 
