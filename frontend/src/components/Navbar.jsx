@@ -15,12 +15,12 @@ function navbar() {
             <ul className="flex-1 flex justify-center items-center font-semibold gap-16 max-lg:hidden">
               {navLinks.map((link) => (
                 <li key={link.label}>
-                  {/* <a href="" className="font-montserrat text-gray-800">
+                  <a href="" className="font-montserrat text-gray-800">
                 {link.label}
-              </a> */}
-                  <Link to={link.to} className="font-montserrat text-gray-800">
+              </a>
+                  {/* <Link to={link.to} className="font-montserrat text-gray-800">
                     {link.label}
-                  </Link>
+                  </Link> */}
                 </li>
               ))}
             </ul>
