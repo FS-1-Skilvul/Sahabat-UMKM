@@ -2,18 +2,18 @@ const { Kelas, sequelize } = require("../models");
 
 module.exports = {
   getAllKelas: async (req, res) => {
-    try {
-      const kelas = await Kelas.findAll({});
-      res.json({
-        message: "Success get all kelas",
-        data: kelas,
-      });
-    } catch (error) {
-      res.status(500).json({
-        error: "Internal Server Error",
-        details: error.message,
-      });
-    }
+    // try {
+    const kelas = await Kelas.findAll();
+    res.json({
+      message: "Success get all kelas",
+      data: kelas,
+    });
+    // } catch (error) {
+    //   res.status(500).json({
+    //     error: "Internal Server Error",
+    //     details: error.message,
+    //   });
+    // }
   },
 
   getKelasById: async (req, res) => {
