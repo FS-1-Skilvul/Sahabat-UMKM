@@ -26,6 +26,8 @@ module.exports = (sequelize, DataTypes) => {
       nama_kelas: DataTypes.STRING,
       deskripsi: DataTypes.TEXT,
       harga: DataTypes.INTEGER,
+      gambar: DataTypes.STRING,
+      video: DataTypes.STRING,
       nama_pengajar: DataTypes.STRING,
       detail_pengajar: DataTypes.TEXT,
       durasi: DataTypes.TIME,
