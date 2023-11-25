@@ -9,7 +9,7 @@ import Desain from "../assets/icons/desain.png";
 export const navLinks = [
     { to: "/", label: "Beranda" },
     { to: "/CariKelasPage", label: "Cari Kelas " },
-    { to: "#mentor", label: "Mentor" },
+    { to: "/AdminDashboard", label: "Mentor" },
     { to: "/", label: "Tentang" },
 ];
 

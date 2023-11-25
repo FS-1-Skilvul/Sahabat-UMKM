@@ -8,11 +8,11 @@ import React from "react";
 import CariKelasPage from "../pages/CariKelasPage";
 // import { Link } from 'react-router-dom';
 function Navbar() {
-  const handleClick = (event) => {
-    event.preventDefault();
-    const id = event.target.getAttribute("href");
-    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-  };
+  // const handleClick = (event) => {
+  //   event.preventDefault();
+  //   const id = event.target.getAttribute("href");
+  //   document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  // };
   const [activeNav, setActiveNav] = useState("Beranda");
   return (
     <>

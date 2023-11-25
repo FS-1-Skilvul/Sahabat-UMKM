@@ -30,6 +30,8 @@ export default {
         "secondary": "#176B87",
         "blue-keuangan": "#8ECDDD",
         "blue-manajemen": "#7091F5",
+        "dark-purple": "#081A51",
+        "light-white": "rgba(255,255,255,0.17)",
         "tosca-desain": "#D4E2D4",
         "purple-soft": "#D0BFFF",
         "brown-desain": "#AC7D88",

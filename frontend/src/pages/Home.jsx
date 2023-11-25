@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+
 
 import Navbar from '../components/navbar'
 import Hero from '../sections/hero'
 import Kategori from '../sections/Kategori'
 import KelasPopuler from '../sections/kelasPopuler'
 import Footer from '../sections/Footer'
-import AuthUser from '../components/AuthUser'
+// import AuthUser from '../components/AuthUser'
 
 function Home() {
   // const {isAuth} = useContext(AuthUser)
