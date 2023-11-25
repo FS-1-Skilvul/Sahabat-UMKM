@@ -7,12 +7,14 @@ module.exports = {
       type: Sequelize.STRING,
       after: "harga",
       allowNull: false,
+      defaultValue: "",
     });
 
     await queryInterface.addColumn("kelas", "video", {
       type: Sequelize.STRING,
       after: "gambar",
       allowNull: false,
+      defaultValue: "",
     });
   },
 

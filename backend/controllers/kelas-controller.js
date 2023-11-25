@@ -94,9 +94,12 @@ module.exports = {
 
   createKelas: async (req, res) => {
     const {
+      id_kategori,
       nama_kelas,
       deskripsi,
       harga,
+      gambar,
+      video,
       nama_pengajar,
       detail_pengajar,
       durasi,
@@ -104,9 +107,12 @@ module.exports = {
     } = req.body;
 
     if (
+      id_kategori ==undefined ||
       !nama_kelas ||
       !deskripsi ||
       harga == undefined ||
+      !gambar ||
+      !video ||
       !nama_pengajar ||
       !detail_pengajar ||
       !durasi ||
@@ -127,10 +133,11 @@ module.exports = {
         durasi,
         rating,
       });
-
       res.status(201).json({
-        message: "Success create new kelas",
+   
+        message: "Success create new kelas" 
       });
+      
     } catch (error) {
       res.status(500).json({
         error: "Internal Server Error",
