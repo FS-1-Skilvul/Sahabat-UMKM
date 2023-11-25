@@ -1,4 +1,4 @@
-const { Daftar_Kelas, Kelas } = require("../models");
+const { Daftar_Kelas } = require("../models");
 
 module.exports = {
   getAllDaftarKelasByUserId: async (req, res) => {

@@ -107,7 +107,7 @@ module.exports = {
     } = req.body;
 
     if (
-      id_kategori ==undefined ||
+      id_kategori == undefined ||
       !nama_kelas ||
       !deskripsi ||
       harga == undefined ||
@@ -125,19 +125,20 @@ module.exports = {
 
     try {
       await Kelas.create({
+        id_kategori,
         nama_kelas,
         deskripsi,
         harga,
+        gambar,
+        video,
         nama_pengajar,
         detail_pengajar,
         durasi,
         rating,
       });
       res.status(201).json({
-   
-        message: "Success create new kelas" 
+        message: "Success create new kelas",
       });
-      
     } catch (error) {
       res.status(500).json({
         error: "Internal Server Error",
