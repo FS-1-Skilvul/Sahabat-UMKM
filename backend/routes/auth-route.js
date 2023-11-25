@@ -5,8 +5,6 @@ const jwt = require("jsonwebtoken");
 const { User } = require("../models");
 const validateRole = require("../middleware/auth.admin");
 
-
-
 route.post('/login', async (req, res) => {
     const checkEmail = await User.findOne({ where: { email: req.body.email } });
 
