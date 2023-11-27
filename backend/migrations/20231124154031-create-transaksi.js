@@ -2,40 +2,38 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Kelas", {
+    await queryInterface.createTable("Transaksis", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      nama_kelas: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
-      deskripsi: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      harga: {
+      id_user: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        references: {
+          model: "users",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
-      nama_pengajar: {
+      id_kelas: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
+        references: {
+          model: "kelas",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
-      detail_pengajar: {
-        allowNull: false,
-        type: Sequelize.TEXT,
+      tanggal_transaksi: {
+        type: Sequelize.DATE,
       },
-      durasi: {
-        allowNull: false,
-        type: Sequelize.TIME,
-      },
-      rating: {
-        allowNull: false,
-        type: Sequelize.FLOAT,
+      total: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -48,6 +46,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Kelas");
+    await queryInterface.dropTable("Transaksis");
   },
 };
