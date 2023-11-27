@@ -1,8 +1,12 @@
+import { useState } from "react";
 import Dana from "../assets/images/dana.png";
 import GoPay from "../assets/images/gopay.png";
 import Ovo from "../assets/images/ovo.png";
+import Modal from "../components/Modal";
 
 export default function Pembayaran() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <section className="py-20 flex justify-center">
       <div className="font-poppins bg-primary text-white w-96 mt-10 p-5 rounded-lg">
@@ -52,12 +56,16 @@ export default function Pembayaran() {
             </div>
           </div>
           <div className="flex justify-center mt-8">
-            <button className="rounded-lg bg-blue-keuangan border-[1.5px] border-blue-keuangan px-10 py-1 text-primary hover:bg-white font-medium duration-300">
+            <button
+              onClick={() => setShowModal(true)}
+              className="rounded-lg bg-blue-keuangan border-[1.5px] border-blue-keuangan px-10 py-1 text-primary hover:bg-white font-medium duration-300"
+            >
               Beli Kelas
             </button>
           </div>
         </div>
       </div>
+      {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
     </section>
   );
 }
