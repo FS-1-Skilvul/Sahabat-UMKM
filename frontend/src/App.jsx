@@ -5,6 +5,7 @@ import DetailKelas from "./pages/DetailKelas";
 import LandingPage from "./pages/LandingPage";
 import CariKelasPage from "./pages/CariKelasPage";
 import Pembayaran from "./pages/Pembayaran";
+import HalamanKelas from "./pages/HalamanKelas";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/search" element={<CariKelasPage />}></Route>
           <Route path="/search/detail-kelas" element={<DetailKelas />}></Route>
           <Route path="/payment" element={<Pembayaran />}></Route>
+          <Route path="/kelas" element={<HalamanKelas />}></Route>
         </Routes>
       </BrowserRouter>
       {/* <Routes>
