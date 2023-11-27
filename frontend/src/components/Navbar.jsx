@@ -14,6 +14,11 @@ function Navbar() {
   //   document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   // };
   const [activeNav, setActiveNav] = useState("Beranda");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
     <>
       <header className="sticky top-0  shadow-md">
@@ -21,12 +26,10 @@ function Navbar() {
           <a href="/">
             <img src={logo} alt="logo" width={140} height={40} />
           </a>
-          <ul className="flex-1 flex justify-center items-center font-semibold gap-16 max-lg:hidden">
+          <ul className="flex-1 flex justify-center items-center font-semibold gap-16 max-lg:hidden ">
             {navLinks.map((link) => (
               <li key={link.label}>
-                {/* <a href="" className="font-montserrat text-gray-800">
-                  {link.label}
-                </a> */}
+
                 <Link to={link.to} className={`font-montserrat text-gray-800 ${activeNav === link.label ? "active" : ""}`} onClick={() => setActiveNav(link.label)}>
                   {link.label}
                 </Link>
@@ -44,7 +47,7 @@ function Navbar() {
           </div>
 
           <div className="hidden max-lg:block">
-            <GiHamburgerMenu />
+            <GiHamburgerMenu cursor="pointer" onClick={toggleMenu}/>
           </div>
         </nav>
       </header>

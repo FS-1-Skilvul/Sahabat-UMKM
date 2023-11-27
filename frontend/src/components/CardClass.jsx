@@ -22,7 +22,7 @@ function CardClass() {
             <p className="   pb-2 rounded-md font-monserrat  text-sm  text-gray-600">{course.category}</p>
             <div className="flex py-3 px-2   justify-between items-center">
             <p className="font-monserrat  text-md font-semibold text-black  "> {course.price}</p>
-            <p className="py-1 px-3 cursor-pointer rounded-md font-monserrat  text-sm  bg-secondary text-white"> Ikuti Kelas</p>
+            <p className="py-1 px-3 cursor-pointer rounded-md font-monserrat  text-sm  bg-secondary text-white "> Ikuti Kelas</p>
             </div>
             </div>
           </div>

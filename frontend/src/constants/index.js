@@ -9,7 +9,7 @@ import Desain from "../assets/icons/desain.png";
 export const navLinks = [
     { to: "/", label: "Beranda" },
     { to: "/CariKelasPage", label: "Cari Kelas " },
-    { to: "/AdminDashboard", label: "Mentor" },
+    // { to: "/AdminDashboard", label: "Mentor" },
     { to: "/", label: "Tentang" },
 ];
 
@@ -21,4 +21,10 @@ export const category = [
     {title: "Desain",href:"" , image: Desain,bg:"bg-brown-desain", jumlahKelas: "10"},
     {title: "Kewirausahaan", href:"" , image: Kewirausahaan,bg:"bg-tosca-desain", jumlahKelas: "10"},
 
+]
+
+export const sidebar = [
+    {title: "Dashboard", to:"/admin"},
+    {title: "Inbox" ,to:"/transaksi"},
+    // {title: "Dashboard" ,to:"/admin"}
 ]
