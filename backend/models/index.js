@@ -1,14 +1,24 @@
 'use strict';
+<<<<<<< HEAD
 
+=======
+require('dotenv').config();
+>>>>>>> a7078e0778db5c84c061f452179ec12b9a8f9509
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
+<<<<<<< HEAD
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
+=======
+const config = require(__dirname + '/../config/config.js')[env];
+const db = {};
+// console.log(config)
+>>>>>>> a7078e0778db5c84c061f452179ec12b9a8f9509
 let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
@@ -40,4 +50,8 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+<<<<<<< HEAD
 module.exports = db;
+=======
+module.exports = db;
+>>>>>>> a7078e0778db5c84c061f452179ec12b9a8f9509
