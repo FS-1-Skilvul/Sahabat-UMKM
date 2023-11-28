@@ -10,7 +10,7 @@ export default function VideoPlayer({ videoId }) {
     },
   };
 
-  function onReady() {
+  function onReady(e) {
     e.target.pauseVideo();
   }
   return (

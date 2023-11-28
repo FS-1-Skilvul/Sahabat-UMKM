@@ -6,7 +6,20 @@ import Modal from "../components/Modal";
 
 export default function Pembayaran() {
   const [showModal, setShowModal] = useState(false);
+  const [selectedMethod, setSelectedMethod] = useState(null);
 
+  const handlePaymentMethodChange = (method) => {
+    setSelectedMethod(method);
+  };
+
+  const handleBeliKelas = () => {
+    if (!selectedMethod) {
+      alert("Pilih Metode Pembayaran!");
+    } else {
+      console.log(selectedMethod);
+      setShowModal(true);
+    }
+  };
   return (
     <section className="py-20 flex justify-center">
       <div className="font-poppins bg-primary text-white w-96 mt-10 p-5 rounded-lg">
@@ -36,6 +49,7 @@ export default function Pembayaran() {
                 type="radio"
                 name="metodePembayaran"
                 className="cursor-pointer w-4 h-4 bg-white border border-gray-300"
+                onChange={() => handlePaymentMethodChange("dana")}
               />
             </div>
             <div className="flex justify-between items-center rounded-lg bg-gray-100 py-1 px-2">
@@ -44,6 +58,7 @@ export default function Pembayaran() {
                 type="radio"
                 name="metodePembayaran"
                 className="cursor-pointer w-4 h-4 bg-white border border-gray-300"
+                onChange={() => handlePaymentMethodChange("gopay")}
               />
             </div>
             <div className="flex justify-between items-center rounded-lg bg-gray-100 py-1 px-2">
@@ -52,12 +67,13 @@ export default function Pembayaran() {
                 type="radio"
                 name="metodePembayaran"
                 className="cursor-pointer w-4 h-4 bg-white border border-gray-300"
+                onChange={() => handlePaymentMethodChange("ovo")}
               />
             </div>
           </div>
           <div className="flex justify-center mt-8">
             <button
-              onClick={() => setShowModal(true)}
+              onClick={handleBeliKelas}
               className="rounded-lg bg-blue-keuangan border-[1.5px] border-blue-keuangan px-10 py-1 text-primary hover:bg-white font-medium duration-300"
             >
               Beli Kelas

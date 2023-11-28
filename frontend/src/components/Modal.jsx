@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { FaCheck } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Modal({ showModal, setShowModal }) {
   // menghilangkan scrolling ketika modal ditampilkan
@@ -30,9 +31,11 @@ export default function Modal({ showModal, setShowModal }) {
           >
             Kembali
           </button>
-          <button className="rounded-lg bg-blue-keuangan border-[1.5px] border-blue-keuangan px-10 py-1 text-primary hover:bg-white font-medium duration-300">
-            Buka Kelas
-          </button>
+          <Link to="/kelas">
+            <button className="rounded-lg bg-blue-keuangan border-[1.5px] border-blue-keuangan px-10 py-1 text-primary hover:bg-white font-medium duration-300">
+              Buka Kelas
+            </button>
+          </Link>
         </div>
       </div>
     </div>
