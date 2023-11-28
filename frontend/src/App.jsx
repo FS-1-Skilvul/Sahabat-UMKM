@@ -17,6 +17,7 @@ function App() {
 
         <Route path="/" element={<Home />} />
         <Route path="CariKelasPage" element={<CariKelasPage />} />
+        <Route path="/CariKelasPage/:category" component={CariKelasPage} />
         {/* <Route path="#mentor" element={<Kategori/>} /> */}
         <Route path="AdminDashboard" element={<AdminDashboard />} />
         {/* <Route path="/transaksi" element={<TransaksiAdmin/>} /> */}
