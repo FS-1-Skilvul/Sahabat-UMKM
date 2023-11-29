@@ -8,6 +8,7 @@ import CariKelasPage from "./pages/CariKelasPage";
 import Footer from "./sections/Footer";
 import KelasPopuler from "./sections/kelasPopuler";
 import Home from "./pages/Home";
+import DashboardUser from "./pages/DashboardUser";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="CariKelasPage" element={<CariKelasPage />} />
         <Route path="#mentor" element={<Kategori />} />
+        <Route path="/dashboard" element={<DashboardUser />}></Route>
         {/* <Route path="/admin">
          {userRole === 'admin' ? <AdminPage /> : <Redirect to="/login" />}
        </Route>
