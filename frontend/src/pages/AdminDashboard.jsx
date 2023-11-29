@@ -5,9 +5,19 @@ import Layout from "./Layout";
 const App = () => {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
-    fetch("https://65280fcd931d71583df1d176.mockapi.io/course")
-      .then((response) => response.json())
-      .then((data) => setCourses(data));
+    // Fetch data from the "/kelas" endpoint
+    fetch("https://backend-production-4c5b.up.railway.app/kategori")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Assuming data is in the format you provided
+        setCourses(data.data);
+      })
+      .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
   return (
@@ -36,15 +46,18 @@ const App = () => {
               </thead>
               <tbody className="min-h-screen">
                 {courses.map((course) => (
-                  <tr key={course.id} className="w-24" >
-                    <td  className="text-center align-top">{course.id}</td>
-                    <td className="text-left align-top">{course.coursename}</td>
-                    <td className="text-left align-top">{course.description}</td>
-                    <td className="text-left align-top">{course.price}</td>
-                    <td className="text-left  align-top max-w-24 break-all">{course.image}</td>
-                    <td className="text-left  align-top max-w-24 break-all">{course.image}</td>
-                    {/* <td className="text-left  align-top max-w-24 break-all">{course.image}</td> */}
-                    </tr>
+                  <tr key={course.id} className="w-24">
+                  <td className="text-center align-top">{course.id}</td>
+                  <td className="text-left align-top">{course.nama_kategori}</td>
+                  <td className="text-left align-top">{course.deskripsi}</td>
+                  <td className="text-left align-top">{course.harga}</td>
+                  <td className="text-left align-top max-w-24 break-all">{course.gambar}</td>
+                  <td className="text-left align-top max-w-24 break-all">{course.video}</td>
+                  <td className="text-left align-top">{course.nama_pengajar}</td>
+                  <td className="text-left align-top">{course.detail_pengajar}</td>
+                  <td className="text-left align-top">{course.durasi}</td>
+                  <td className="text-left align-top">{course.rating}</td>
+                </tr>
                      ))}
                 </tbody>
             </table>
