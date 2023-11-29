@@ -1,34 +1,34 @@
 import Navbar from "./components/navbar";
 import "./App.css";
-import { Routes, BrowserRouter as Router, Route } from "react-router-dom";
-import Hero from "./sections/hero";
-import Kategori from "./sections/Kategori";
-import CardClass from "./components/CardClass";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DetailKelas from "./pages/DetailKelas";
+import LandingPage from "./pages/LandingPage";
 import CariKelasPage from "./pages/CariKelasPage";
-import Footer from "./sections/Footer";
-import KelasPopuler from "./sections/kelasPopuler";
-import Home from "./pages/Home";
-import DashboardUser from "./pages/DashboardUser";
+import Pembayaran from "./pages/Pembayaran";
+import HalamanKelas from "./pages/HalamanKelas";
 
 function App() {
   return (
-    <Router>
-      {/* <Navbar /> */}
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="CariKelasPage" element={<CariKelasPage />} />
-        <Route path="#mentor" element={<Kategori />} />
-        <Route path="/dashboard" element={<DashboardUser />}></Route>
-        {/* <Route path="/admin">
-         {userRole === 'admin' ? <AdminPage /> : <Redirect to="/login" />}
-       </Route>
-       <Route path="/client">
-         {userRole === 'client' ? <ClientPage /> : <Redirect to="/login" />}
-       </Route> */}
-      </Routes>
-      {/* <Footer /> */}
-    </Router>
+    <>
+      {/* // <Router> */}
+      <Navbar />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />}></Route>
+          {/* <Route path="/home" element={<Home />}></Route> */}
+          <Route path="/search" element={<CariKelasPage />}></Route>
+          <Route path="/search/detail-kelas" element={<DetailKelas />}></Route>
+          <Route path="/payment" element={<Pembayaran />}></Route>
+          <Route path="/kelas" element={<HalamanKelas />}></Route>
+        </Routes>
+      </BrowserRouter>
+      {/* <Routes>
+        <Route path="/" element={<Beranda />} />
+        <Route path="/CariKelasPage" element={<CariKelasPage />} />
+        </Routes>
+        </Router>
+      */}
+    </>
   );
 }
 

@@ -27,7 +27,13 @@ function Navbar() {
                 {/* <a href="" className="font-montserrat text-gray-800">
                   {link.label}
                 </a> */}
-                <Link to={link.to} className={`font-montserrat text-gray-800 ${activeNav === link.label ? "active" : ""}`} onClick={() => setActiveNav(link.label)}>
+                <Link
+                  to={link.to}
+                  className={`font-montserrat text-gray-800 ${
+                    activeNav === link.label ? "active" : ""
+                  }`}
+                  onClick={() => setActiveNav(link.label)}
+                >
                   {link.label}
                 </Link>
               </li>
@@ -38,7 +44,10 @@ function Navbar() {
               Buat Akun
             </a>
             {/* <span>/</span> */}
-            <a href="/" className="bg-primary px-8 py-2 rounded-lg font-medium text-white">
+            <a
+              href="/"
+              className="bg-primary px-8 py-2 rounded-lg font-medium text-white"
+            >
               Masuk
             </a>
           </div>
