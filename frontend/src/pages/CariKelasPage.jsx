@@ -1,12 +1,18 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../components/navbar";
+import CariKelas from "../components/CariKelas";
+import Kategori from "../sections/Kategori";
+import Hero from "../sections/hero";
+import Footer from "../sections/Footer";
 
-const CariKelasPage =()=> {
+const CariKelasPage = () => {
   return (
-    <div>
-<h1>haloooooo</h1>
-        text
-    </div>
-  )
-}
+    <>
+    <Navbar/>
+      <CariKelas />
+     <Footer/>
+    </>
+  );
+};
 
-export default CariKelasPage
+export default CariKelasPage;
