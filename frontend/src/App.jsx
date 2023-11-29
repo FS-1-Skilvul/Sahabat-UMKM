@@ -6,6 +6,8 @@ import LandingPage from "./pages/LandingPage";
 import CariKelasPage from "./pages/CariKelasPage";
 import Pembayaran from "./pages/Pembayaran";
 import HalamanKelas from "./pages/HalamanKelas";
+import Kategori from "./sections/Kategori";
+import DashboardUser from "./pages/DashboardUser";
 
 function App() {
   return (
@@ -17,9 +19,11 @@ function App() {
           <Route path="/" element={<LandingPage />}></Route>
           {/* <Route path="/home" element={<Home />}></Route> */}
           <Route path="/search" element={<CariKelasPage />}></Route>
+          <Route path="#mentor" element={<Kategori />} />
           <Route path="/search/detail-kelas" element={<DetailKelas />}></Route>
           <Route path="/payment" element={<Pembayaran />}></Route>
           <Route path="/kelas" element={<HalamanKelas />}></Route>
+          <Route path="/dashboard" element={<DashboardUser />}></Route>
         </Routes>
       </BrowserRouter>
       {/* <Routes>
