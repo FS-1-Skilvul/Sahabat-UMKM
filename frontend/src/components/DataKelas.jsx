@@ -9,7 +9,7 @@ export default function DataKelas({ data }) {
           id="price"
           className="text-xl bg-blue-keuangan text-primary px-7 py-[2px] rounded-2xl"
         >
-          Rp50.000
+          {data.price}
         </span>
         <p id="duration" className="mt-2 text-gray-600">
           1jam 25mnt
