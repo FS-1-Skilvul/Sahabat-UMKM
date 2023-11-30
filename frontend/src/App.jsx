@@ -11,6 +11,7 @@ import Kategori from "./sections/Kategori";
 import DashboardUser from "./pages/DashboardUser";
 import Pembayaran from "./pages/Pembayaran";
 import HalamanKelas from "./pages/HalamanKelas";
+import KelasSaya from "./pages/KelasSaya";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/search/:id" element={<DetailKelas />} />
         <Route path="/payment" element={<Pembayaran />} />
         <Route path="/kelas" element={<HalamanKelas />} />
+        <Route path="/kelas-saya" element={<KelasSaya />} />
         {/* <Route path="/admin">
          {userRole === 'admin' ? <AdminPage /> : <Redirect to="/login" />}
        </Route>
