@@ -28,7 +28,7 @@ function CardFilter({ course }) {
             {" "}
             {price}
           </p>
-          <Link to={`:${id}`}>
+          <Link to={`${id}`}>
             <p className="py-1 px-3 cursor-pointer rounded-md font-monserrat  text-sm  bg-secondary text-white">
               {" "}
               Ikuti Kelas

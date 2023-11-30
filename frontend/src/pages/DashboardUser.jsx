@@ -10,22 +10,22 @@ export default function DashboardUser() {
       <span className="text-primary text-xl">Halo User </span>
       <PiHandWavingBold className="inline-block text-2xl" />
 
-      <div id="dashboard-data" className="flex gap-10 mt-10">
-        <div className="bg-blue-500 w-72 p-5 rounded-2xl">
+      <div id="dashboard-data" className="flex gap-10 mt-10 max-sm:flex-col">
+        <div className="bg-blue-500 w-72 max-[400px]:max-w-[18rem] p-5 rounded-2xl">
           <div className="mb-3 text-2xl flex justify-between">
             <span>5</span>
             <FaRegSave className="inline-block" />
           </div>
           <p>Total Kelas Diikuti</p>
         </div>
-        <div className="bg-green-500 w-72 p-5 rounded-2xl">
+        <div className="bg-green-500 w-72 max-sm:max-w-[18rem] p-5 rounded-2xl">
           <div className="mb-3 text-2xl flex justify-between">
             <span>5</span>
             <FaCheck className="inline-block" />
           </div>
           <p>Kelas Diselesaikan</p>
         </div>
-        <div className="bg-yellow-500 w-72 p-5 rounded-2xl">
+        <div className="bg-yellow-500 w-72 max-sm:max-w-[18rem] p-5 rounded-2xl">
           <div className="mb-3 text-2xl flex justify-between">
             <span>5</span>
             <GrCycle className="inline-block" />

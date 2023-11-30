@@ -19,12 +19,12 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="search" element={<CariKelasPage />} />
+        <Route path="/search" element={<CariKelasPage />} />
         <Route path="#mentor" element={<Kategori />} />
-        <Route path="dashboard" element={<DashboardUser />} />
-        <Route path=":id" element={<DetailKelas />} />
-        <Route path="payment" element={<Pembayaran />} />
-        <Route path="kelas" element={<HalamanKelas />} />
+        <Route path="/dashboard" element={<DashboardUser />} />
+        <Route path="/search/:id" element={<DetailKelas />} />
+        <Route path="/payment" element={<Pembayaran />} />
+        <Route path="/kelas" element={<HalamanKelas />} />
         {/* <Route path="/admin">
          {userRole === 'admin' ? <AdminPage /> : <Redirect to="/login" />}
        </Route>

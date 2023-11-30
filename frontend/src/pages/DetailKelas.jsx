@@ -13,7 +13,6 @@ export default function DetailKelas() {
     fetch(`https://65280fcd931d71583df1d176.mockapi.io/course/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log("Fetched data:", data);
         setData(data);
       });
   }, []);
