@@ -1,14 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import KelasSayaCard from "../components/KelasSayaCard";
 
 export default function KelasSaya() {
   const [activeFilter, setActiveFilter] = useState("semua");
+  const [kelas, setKelas] = useState([]);
+  useEffect(() => {
+    fetch(`https://65280fcd931d71583df1d176.mockapi.io/course`)
+      .then((response) => response.json())
+      .then((data) => {
+        setKelas(data);
+      });
+  }, []);
 
   const handleFilterClick = (filter) => {
     setActiveFilter(filter);
   };
 
   return (
-    <div>
+    <div className="px-10">
       <div className="flex gap-4">
         <div
           className={`px-5 py-1 rounded-3xl border ${
@@ -37,6 +46,12 @@ export default function KelasSaya() {
           <span>Diselesaikan</span>
         </div>
       </div>
+      <div className="flex gap-10 flex-wrap justify-center mt-24">
+        {kelas.map((item) => (
+          <KelasSayaCard key={item.id} kelas={item} />
+        ))}
+      </div>
+      \
     </div>
   );
 }

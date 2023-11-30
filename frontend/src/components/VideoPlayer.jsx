@@ -1,19 +1,12 @@
-import YouTube from "react-youtube";
-
-export default function VideoPlayer({ videoId }) {
-  const options = {
-    height: "390",
-    width: "640",
-    playerVars: {
-      autoplay: 1,
-      controls: 1,
-    },
-  };
-
-  function onReady(e) {
-    e.target.pauseVideo();
-  }
+export default function VideoPlayer({ videoLink }) {
   return (
-    <YouTube videoId={videoId} options={options} onReady={onReady} id="video" />
+    <iframe
+      className="w-[640px] h-[390px] max-sm:w-full max-sm:h-full"
+      src="https://www.youtube.com/embed/evyIJL8_1XE?si=6Mox_SPixG2Hsm_p"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
   );
 }
