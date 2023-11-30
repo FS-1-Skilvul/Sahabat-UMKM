@@ -25,6 +25,7 @@ export default {
       colors: {
         primary: "#053B50",
         secondary: "#176B87",
+        sub1: "64CCC5",
         "blue-keuangan": "#8ECDDD",
         "blue-manajemen": "#7091F5",
         "tosca-desain": "#D4E2D4",
