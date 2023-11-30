@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import KelasSayaCard from "../components/KelasSayaCard";
+import { Link } from "react-router-dom";
 
 export default function KelasSaya() {
   const [activeFilter, setActiveFilter] = useState("semua");
@@ -48,7 +49,9 @@ export default function KelasSaya() {
       </div>
       <div className="flex gap-10 flex-wrap justify-center mt-24">
         {kelas.map((item) => (
-          <KelasSayaCard key={item.id} kelas={item} />
+          <Link to={`/kelas/${item.id}`}>
+            <KelasSayaCard key={item.id} kelas={item} />
+          </Link>
         ))}
       </div>
       \

@@ -25,7 +25,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardUser />} />
         <Route path="/search/:id" element={<DetailKelas />} />
         <Route path="/payment" element={<Pembayaran />} />
-        <Route path="/kelas" element={<HalamanKelas />} />
+        <Route path="/kelas/:id" element={<HalamanKelas />} />
         <Route path="/kelas-saya" element={<KelasSaya />} />
         {/* <Route path="/admin">
          {userRole === 'admin' ? <AdminPage /> : <Redirect to="/login" />}
