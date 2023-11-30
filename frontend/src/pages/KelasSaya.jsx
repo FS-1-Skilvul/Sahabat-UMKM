@@ -18,7 +18,7 @@ export default function KelasSaya() {
 
   return (
     <div className="px-10">
-      <div className="flex gap-4">
+      <div className="flex max-sm:items-center max-sm:flex-col gap-4">
         <div
           className={`px-5 py-1 rounded-3xl border ${
             activeFilter == "semua" ? "border-gray-800" : "border-transparent"
