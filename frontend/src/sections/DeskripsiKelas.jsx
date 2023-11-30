@@ -5,7 +5,7 @@ export default function DeskripsiKelas({ desc }) {
         Deskripsi Kelas
       </h2>
       <div className="border-2 border-primary rounded-bl-lg rounded-tr-lg p-5 w-fit">
-        <p>{desc}</p>
+        <p className="max-sm:text-center">{desc}</p>
       </div>
     </section>
   );

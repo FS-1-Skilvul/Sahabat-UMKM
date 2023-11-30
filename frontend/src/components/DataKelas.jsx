@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 
 export default function DataKelas({ data }) {
   return (
-    <div id="class-data" className="flex items-center mt-10 px-12 gap-10">
-      <img src={data.image} alt="" className="max-w-xs" />
+    <div
+      id="class-data"
+      className="flex max-sm:flex-col items-center mt-10 px-12 max-sm:px-0 gap-10"
+    >
+      <img src={data.image} alt="" className="max-w-xs max-sm:w-full" />
       <div>
         <span
           id="price"
