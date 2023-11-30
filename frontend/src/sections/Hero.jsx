@@ -12,7 +12,7 @@ const Hero = () => {
             <span className="text-secondary inline-block  max-sm:text-[52px] ">UMKM</span>
             <span className="text-primary "> Anda</span>{" "}
           </h1>
-          <p className="font-poppins text-sm text-gray-600">Kami mendukung pemilik UMKM dalam mengatasi tantangan dan mencapai tujuan bisnis mereka. Temukan sumber daya dan panduan untuk mengoptimalkan potensi bisnis Anda</p>
+          <p className="font-poppins text-sm text-gray-600">Kami mendukung pemilik UMKM dalam mengatasi tantangan dan mencapai tujuan bisnis mereka. Temukan sumber daya dan panduan untuk mengoptimalkan potensi bisnis anda</p>
           <Link to="CariKelasPage">
           <Button label="Mulai Sekarang" />
           </Link>

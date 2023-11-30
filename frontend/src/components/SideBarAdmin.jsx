@@ -1,10 +1,7 @@
 import { useState } from "react";
-import { BrowserRouter, Routes, Route, Link,useNavigate  } from "react-router-dom";
-import TransaksiAdmin from "../pages/TransaksiAdmin";
-import AdminDashboard from "../pages/AdminDashboard";
-import IsiSideBarAdmin from "./IsiSideBarAdmin";
+import {  Link  } from "react-router-dom";
+
 // import { useDispatch, useSelector } from "react-redux";
-import { IoPerson, IoPricetag, IoHome, IoLogOut } from "react-icons/io5";
 
 function SideBarAdmin() {
   const [activeMenu, setActiveMenu] = useState();
@@ -19,8 +16,8 @@ function SideBarAdmin() {
   //   navigate("/");
   // };
   const Menus = [
-    { title: "Dashboard", src: "Chart_fill", to: "/dashboard" },
-    { title: "Transaksi", src: <IoHome/>, to: "/transaksi" },
+    { title: "Dashboard", src: "dashboard3", to: "/dashboard" },
+    { title: "Transaksi", src: "transaksi1", to: "/transaksi" },
     
   ];
  
@@ -35,7 +32,7 @@ function SideBarAdmin() {
 
   return (
     <div>
-      <div className="flex">
+      <div className="flex items-center">
         <div className={` ${open ? "w-72" : "w-20 "} bg-secondary h-screen p-5  pt-8 relative duration-300`}>
           <img
             src="../src/assets/control.png"
@@ -44,7 +41,7 @@ function SideBarAdmin() {
             onClick={() => setOpen(!open)}
           />
           <div className="flex gap-x-4 items-center">
-            <img src="../src/assets/images/logo.png" className={`  cursor-pointer duration-500 ${open && "rotate-[360deg]"}`} />
+            <img src="../src/assets/images/logo.png" className={` `} />
             <h1 className={`text-white origin-left font-medium text-xl duration-200 ${!open && "scale-0"}`}></h1>
           </div>
           <ul className="pt-6">
@@ -55,11 +52,11 @@ function SideBarAdmin() {
               ${Menu.gap ? "mt-9" : "mt-2"} ${activeMenu === Menu.title && "bg-light-white"}  `}
                 onClick={() => handleMenuClick(Menu.title)}
                 >
-                <Link to={Menu.to} onClick={() => setActiveMenu(Menu.to)}> 
+                <Link to={Menu.to} onClick={() => setActiveMenu(Menu.to)} className="flex items-center gap-3 mt-4"> 
                 <button>
-                  <img src={`../src/assets/${Menu.src}.png`} />
+                  <img src={`../src/assets/${Menu.src}.png`} className="w-8" />
                 </button>
-                <span className={`${!open && "hidden"} origin-left duration-200`}>{Menu.title}</span>
+                <span className={`${!open && "hidden"} origin-left duration-200 font-semibold text-lg text-center`}>{Menu.title}</span>
               </Link>
               </li>
             ))}

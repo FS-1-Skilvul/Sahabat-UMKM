@@ -1,8 +1,24 @@
-import React from "react";
-import SideBarAdmin from "../components/SideBarAdmin";
+import { useState, useEffect } from "react";
 import Layout from "./Layout";
 
 function TransaksiAdmin() {
+  const [transactions, setTransaction] = useState([]);
+  useEffect(() => {
+    // Fetch data from the "/kelas" endpoint
+    fetch("https://backend-production-4c5b.up.railway.app/transaksi")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Assuming data is in the format you provided
+        setTransaction(data.data);
+      })
+      .catch((error) => console.error('Error fetching data:', error));
+  }, []);
+
   return (
     <Layout>
       <div className="flex flex-col py-5">
@@ -19,39 +35,17 @@ function TransaksiAdmin() {
               <th>Total</th>
               </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>2</td>
-             
-              <td>23-10-2003</td>
-              <td>50.000</td>
-             
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>2</td>
-             
-              <td>23-10-2003</td>
-              <td>50.000</td>
-             
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>2</td>
-             
-              <td>23-10-2003</td>
-              <td>50.000</td>
-             
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>2</td>
-             
-              <td>23-10-2003</td>
-              <td>50.000</td>
-             
-            </tr>
+          <tbody className="min-h-screen">
+            {transactions.map((transaction) => (
+              <tr key={transaction.id} className="w-24">
+                <td className="text-left align-top">{transaction.id_kelas}</td>
+                <td className="text-left align-top">{transaction.id_user}</td>
+                <td className="text-left align top">{transaction.tanggal_transaksi}</td>
+                <td className="text-left align top">{transaction.total}</td>
+
+
+              </tr>
+            ))}
           </tbody>
         </table>
         {/* Konten utama */}

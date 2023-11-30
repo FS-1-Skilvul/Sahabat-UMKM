@@ -1,11 +1,12 @@
 import "./App.css";
 import { Routes, BrowserRouter as Router, Route } from "react-router-dom";
 import CariKelasPage from "./pages/CariKelasPage";
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Home from "./pages/Home";
 import AdminDashboard from "./pages/AdminDashboard";
 import TransaksiAdmin from "./pages/TransaksiAdmin";
 import FormAddClass from "./components/FormAddClass";
+import Tentang from "./sections/Tentang";
 
 function App() {
   // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -17,7 +18,12 @@ function App() {
 
         <Route path="/" element={<Home />} />
         <Route path="CariKelasPage" element={<CariKelasPage />} />
-        <Route path="/CariKelasPage/:category" component={CariKelasPage} />
+        <Route path="#tentang-section" element={<Tentang />} />
+
+        {/* route login regis */}
+        {/* <Route path="/login" element={<Login />} />
+        <Route path="/regis" element={<Regis/>} /> */}
+       
         {/* <Route path="#mentor" element={<Kategori/>} /> */}
         <Route path="AdminDashboard" element={<AdminDashboard />} />
         {/* <Route path="/transaksi" element={<TransaksiAdmin/>} /> */}
@@ -26,13 +32,14 @@ function App() {
         <Route path="/dashboard" element={<AdminDashboard />} />
         <Route path="/transaksi" element={<TransaksiAdmin />} />
         <Route path="/dashboard/FormAddClass" element={<FormAddClass />} />
+        <Route path="/FormAddClass" element={<FormAddClass />} />
 
         {/* <Route path="/admin">
-         {userRole === 'admin' ? <AdminPage /> : <Redirect to="/login" />}
+         {userRole === 'admin' ? <AdminDashboard /> : <Redirect to="/login" />}
        </Route>
        <Route path="/client">
-         {userRole === 'client' ? <ClientPage /> : <Redirect to="/login" />}
-       </Route> */}
+         {userRole === 'client' ? <Home /> : <Redirect to="/login" />}
+       </Route>  */}
       </Routes>
       {/* <Footer /> */}
     </Router>

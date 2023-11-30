@@ -7,7 +7,7 @@ const Kategori_Kelas = () => {
   }
   return (
     <div className="">
-      <div className="mt-10  grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
+      <div className="mt-10  grid grid-cols-2  sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
         {category.map((link,index) => (        
           <Link key={index} >
           <div key={link.title} to={link.href} className="flex gap-4 rounded-xl shadow-md py-5 px-3 cursor-pointer transition ease-in-out duration-300 hover:translate-y-[-10px]" onClick={handleclick} >

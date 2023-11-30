@@ -10,7 +10,7 @@ export const navLinks = [
     { to: "/", label: "Beranda" },
     { to: "/CariKelasPage", label: "Cari Kelas " },
     // { to: "/AdminDashboard", label: "Mentor" },
-    { to: "/", label: "Tentang" },
+    { to: "#tentang-section", label: "Tentang" },
 ];
 
 export const category = [
