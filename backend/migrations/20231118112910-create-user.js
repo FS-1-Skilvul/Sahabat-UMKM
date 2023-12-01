@@ -23,15 +23,13 @@ module.exports = {
       },
       role: {
         type: Sequelize.STRING,
-       
-        defaultValue: "client",
 
+        defaultValue: "client",
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: new Date(),
-
       },
       updatedAt: {
         allowNull: false,
