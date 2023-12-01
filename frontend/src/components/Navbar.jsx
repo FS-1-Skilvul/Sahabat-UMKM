@@ -1,19 +1,19 @@
 import logo from "../assets/images/logo.png";
 import { navLinks } from "../constants";
 import { useState } from "react";
-// import { Link as RouterLink } from "react-router-dom";
-// import { Link, animateScroll as scroll } from "react-scroll";
-// import { Link } from 'react-router-dom';
+import React from "react";
+import CariKelasPage from "../pages/CariKelasPage";
+
 function Navbar() {
-  // const handleClick = (event) => {
-  //   event.preventDefault();
-  //   const id = event.target.getAttribute("href");
-  //   document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-  // };
+  const handleClick = (event) => {
+    event.preventDefault();
+    const id = event.target.getAttribute("href");
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  };
   const [activeNav, setActiveNav] = useState("Beranda");
 
   let [open, setOpen] = useState(false);
-
+  // if (isLogin) {
   return (
     <>
       <header className="fixed top-0 left-0  w-full shadow-md">
@@ -36,40 +36,11 @@ function Navbar() {
                 <a className={`font-montserrat text-gray-800 hover:text-gray-400 ${activeNav === link.label ? "active" : ""}  `} href={link.to}>
                   {link.label}
                 </a>
-                {/* <Link
-                  to={link.to}
-                  spy={true}
-                  smooth={true}
-                  offset={-70} // Sesuaikan dengan tinggi elemen header jika ada
-                  duration={500}
-                  className={`font-montserrat text-gray-800 hover:text-gray-400 ${activeNav === link.label ? "active" : ""} cursor-pointer`}
-                  onClick={() => {
-                    setActiveNav(link.label);
-                    setOpen(false); // Tutup menu setelah mengklik tautan
-                  }}
-                >
-                  {link.label}
-                </Link> */}
-
-                {/* <Link
-                  to={link.to}
-                  id={link.id}
-                  activeClass="active"
-            
-                  spy={true}
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                  className={`font-montserrat text-gray-800 ${activeNav === link.label ? "active" : ""}`}
-                  onClick={() => setActiveNav(link.label)}
-                >
-                  {link.label}
-                </Link> */}
               </li>
             ))}
           </ul>
           <div className="flex gap-2 leading-normal font-montserrat max-lg:hidden wide:mr-24 items-center">
-            <a href="/regis" className="font px-5 py-1 text-white hover:text-primary">
+            <a href="/register" className="font px-5 py-1 text-white hover:text-primary">
               Buat Akun
             </a>
             {/* <span>/</span> */}
@@ -81,6 +52,6 @@ function Navbar() {
       </header>
     </>
   );
-}
-
+            }
+// }
 export default Navbar;

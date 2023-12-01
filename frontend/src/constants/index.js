@@ -6,12 +6,21 @@ import Kewirausahaan from "../assets/icons/kewirausahaan.png";
 import Desain from "../assets/icons/desain.png";
 // import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-export const navLinks = [
+export const navLinks = 
+// {
+  // landing:
+   [
     { to: "/", label: "Beranda" },
-    { to: "/CariKelasPage", label: "Cari Kelas " },
+    { to: "/search", label: "Cari Kelas " },
     // { to: "/AdminDashboard", label: "Mentor" },
     { to: "#tentang-section", label: "Tentang" },
-];
+  ]
+  // login: [
+  //   { to: "/", label: "Dashboard" },
+  //   { to: "/myclass", label: "Kelas Saya" },
+  //   { to: "/search", label: "Cari Kelas" },
+  // ],
+// };
 
 export const category = [
     {title: "Keuangan",href:"" ,image: Keuangan,bg: "bg-blue-keuangan",jumlahKelas: "10"},
