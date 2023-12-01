@@ -6,19 +6,61 @@ import Kewirausahaan from "../assets/icons/kewirausahaan.png";
 import Desain from "../assets/icons/desain.png";
 // import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-export const navLinks = [
+export const navLinks = {
+  landing: [
     { to: "/", label: "Beranda" },
-    { to: "/CariKelasPage", label: "Cari Kelas " },
-    { to: "/", label: "Mentor" },
+    { to: "/search", label: "Cari Kelas " },
+    { to: "#mentor", label: "Mentor" },
     { to: "/", label: "Tentang" },
-];
+  ],
+  login: [
+    { to: "/", label: "Dashboard" },
+    { to: "/myclass", label: "Kelas Saya" },
+    { to: "/search", label: "Cari Kelas" },
+  ],
+};
 
 export const category = [
-    {title: "Keuangan",href:"" ,image: Keuangan,bg: "bg-blue-keuangan",jumlahKelas: "10"},
-    {title: "Manajemen",href:"/CariKelasPage" , image: Manajemen,bg:"bg-blue-manajemen",jumlahKelas: "10"},
-    {title: "Pemasaran",href:"" , image: Pemasaran,bg:"bg-yellow-pemasaran",jumlahKelas: "10"},
-    {title: "Pengembangan Diri", href:"" ,image: Pengembagan, bg:"bg-purple-soft",jumlahKelas: "10"},
-    {title: "Desain",href:"" , image: Desain,bg:"bg-brown-desain", jumlahKelas: "10"},
-    {title: "Kewirausahaan", href:"" , image: Kewirausahaan,bg:"bg-tosca-desain", jumlahKelas: "10"},
-
-]
+  {
+    title: "Keuangan",
+    href: "",
+    image: Keuangan,
+    bg: "bg-blue-keuangan",
+    jumlahKelas: "10",
+  },
+  {
+    title: "Manajemen",
+    href: "/CariKelasPage",
+    image: Manajemen,
+    bg: "bg-blue-manajemen",
+    jumlahKelas: "10",
+  },
+  {
+    title: "Pemasaran",
+    href: "",
+    image: Pemasaran,
+    bg: "bg-yellow-pemasaran",
+    jumlahKelas: "10",
+  },
+  {
+    title: "Pengembangan Diri",
+    href: "",
+    image: Pengembagan,
+    bg: "bg-purple-soft",
+    jumlahKelas: "10",
+  },
+  {
+    title: "Desain",
+    href: "",
+    image: Desain,
+    bg: "bg-brown-desain",
+    jumlahKelas: "10",
+  },
+  {
+    title: "Kewirausahaan",
+    href: "",
+    image: Kewirausahaan,
+    bg: "bg-tosca-desain",
+    jumlahKelas: "10",
+  },
+];

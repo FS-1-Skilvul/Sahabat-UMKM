@@ -65,3 +65,5 @@ const RegistrationPage = () => {
     </div>
   );
 };
+
+export default RegistrationPage;

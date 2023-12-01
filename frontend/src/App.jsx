@@ -1,30 +1,41 @@
 import Navbar from "./components/navbar";
 import "./App.css";
-import { BrowserRouter as Route, Router, Routes } from "react-router-dom";
-import Hero from "./sections/hero";
-import Kategori from "./sections/Kategori";
-import CardClass from "./components/CardClass";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import DetailKelas from "./pages/DetailKelas";
+import LandingPage from "./pages/LandingPage";
 import CariKelasPage from "./pages/CariKelasPage";
 import Footer from "./sections/Footer";
 import KelasPopuler from "./sections/kelasPopuler";
+import Home from "./pages/Home";
+import Kategori from "./sections/Kategori";
+import DashboardUser from "./pages/DashboardUser";
+import Pembayaran from "./pages/Pembayaran";
+import HalamanKelas from "./pages/HalamanKelas";
+import KelasSaya from "./pages/KelasSaya";
 
 function App() {
   return (
-    <>
-      {/* // <Router> */}
-      <Navbar />
-      <Hero />
+    <Router>
+      {/* <Navbar /> */}
 
-      <Kategori />
-      <KelasPopuler />
-      <Footer />
-      {/* <Routes>
-        <Route path="/" element={<Beranda />} />
-        <Route path="/CariKelasPage" element={<CariKelasPage />} />
-        </Routes>
-        </Router>
-      */}
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<CariKelasPage />} />
+        <Route path="#mentor" element={<Kategori />} />
+        <Route path="/dashboard" element={<DashboardUser />} />
+        <Route path="/search/:id" element={<DetailKelas />} />
+        <Route path="/payment" element={<Pembayaran />} />
+        <Route path="/kelas/:id" element={<HalamanKelas />} />
+        <Route path="/kelas-saya" element={<KelasSaya />} />
+        {/* <Route path="/admin">
+         {userRole === 'admin' ? <AdminPage /> : <Redirect to="/login" />}
+       </Route>
+       <Route path="/client">
+         {userRole === 'client' ? <ClientPage /> : <Redirect to="/login" />}
+       </Route> */}
+      </Routes>
+      {/* <Footer /> */}
+    </Router>
   );
 }
 
