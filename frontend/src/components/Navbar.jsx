@@ -5,6 +5,10 @@ import React from "react";
 import CariKelasPage from "../pages/CariKelasPage";
 
 function Navbar() {
+
+//    const { isAuthenticated } = useContext(AuthContext);
+
+//  const links = isAuthenticated ? navLinks.login : navLinks.landing;
   const handleClick = (event) => {
     event.preventDefault();
     const id = event.target.getAttribute("href");

@@ -17,6 +17,7 @@ import Pembayaran from "./pages/Pembayaran";
 import HalamanKelas from "./pages/HalamanKelas";
 import KelasSaya from "./pages/KelasSaya";
 import RegistrationPage from "./pages/RegistrationPage";
+import Login from "./pages/LoginPage";
 
 function App() {
   // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -33,7 +34,7 @@ function App() {
 
 
      <Route path="/register" element={<RegistrationPage />} />
-     {/* <Route path="/login" element={<loginPage />} /> */}
+     <Route path="/login" element={<Login />} />
 
      {/* Rute untuk admin */}
      <Route path="/admin-dashboard" element={<AdminDashboard />} />
