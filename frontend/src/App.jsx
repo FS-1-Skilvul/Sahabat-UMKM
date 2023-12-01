@@ -1,42 +1,48 @@
-import Navbar from "./components/navbar";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import DetailKelas from "./pages/DetailKelas";
 import LandingPage from "./pages/LandingPage";
 import CariKelasPage from "./pages/CariKelasPage";
-import Footer from "./sections/Footer";
-import KelasPopuler from "./sections/kelasPopuler";
+import { useSelector } from "react-redux";
 import Home from "./pages/Home";
+import AdminDashboard from "./pages/AdminDashboard";
+import TransaksiAdmin from "./pages/TransaksiAdmin";
+import FormAddClass from "./components/FormAddClass";
+import Tentang from "./sections/Tentang";
+import KategoriAdmin from "./pages/KategoriAdmin";
+import UserAdmin from "./pages/UserAdmin";
 import Kategori from "./sections/Kategori";
 import DashboardUser from "./pages/DashboardUser";
 import Pembayaran from "./pages/Pembayaran";
 import HalamanKelas from "./pages/HalamanKelas";
 import KelasSaya from "./pages/KelasSaya";
+import RegistrationPage from "./pages/RegistrationPage";
 
 function App() {
+  // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  // const userRole = useSelector(state => state.auth.userRole);
   return (
-    <Router>
-      {/* <Navbar /> */}
+    <Routes>
+     <Route path="/" element={<Home />} />
+     <Route path="/search" element={<CariKelasPage />} />
+     <Route path="/user-dashboard" element={<DashboardUser />} />
+     <Route path="/search/:id" element={<DetailKelas />} />
+     <Route path="/payment" element={<Pembayaran />} />
+     <Route path="/kelas/:id" element={<HalamanKelas />} />
+     <Route path="/kelas-saya" element={<KelasSaya />} />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/search" element={<CariKelasPage />} />
-        <Route path="#mentor" element={<Kategori />} />
-        <Route path="/dashboard" element={<DashboardUser />} />
-        <Route path="/search/:id" element={<DetailKelas />} />
-        <Route path="/payment" element={<Pembayaran />} />
-        <Route path="/kelas/:id" element={<HalamanKelas />} />
-        <Route path="/kelas-saya" element={<KelasSaya />} />
-        {/* <Route path="/admin">
-         {userRole === 'admin' ? <AdminPage /> : <Redirect to="/login" />}
-       </Route>
-       <Route path="/client">
-         {userRole === 'client' ? <ClientPage /> : <Redirect to="/login" />}
-       </Route> */}
-      </Routes>
-      {/* <Footer /> */}
-    </Router>
+
+     <Route path="/register" element={<RegistrationPage />} />
+     {/* <Route path="/login" element={<loginPage />} /> */}
+
+     {/* Rute untuk admin */}
+     <Route path="/admin-dashboard" element={<AdminDashboard />} />
+     <Route path="/transaksi" element={<TransaksiAdmin />} />
+     <Route path="/kategori" element={<KategoriAdmin />} />
+     <Route path="/userAdmin" element={<UserAdmin />} />
+     <Route path="/dashboard/FormAddClass" element={<FormAddClass />} />
+     <Route path="/FormAddClass" element={<FormAddClass />} />
+   </Routes>
   );
 }
-
 export default App;

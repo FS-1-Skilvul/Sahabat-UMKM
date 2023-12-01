@@ -39,4 +39,22 @@
 
 .read-the-docs {
   color: #888;
+} */
+td,th{
+
+  border: 1px solid #a1a0a0;
 }
+td {
+  text-align: center;
+  padding: 8px;
+}
+
+th{
+  text-align: center;
+  
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
