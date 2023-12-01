@@ -7,6 +7,8 @@ import AdminDashboard from "./pages/AdminDashboard";
 import TransaksiAdmin from "./pages/TransaksiAdmin";
 import FormAddClass from "./components/FormAddClass";
 import Tentang from "./sections/Tentang";
+import KategoriAdmin from "./pages/KategoriAdmin";
+import UserAdmin from "./pages/UserAdmin";
 
 function App() {
   // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -31,6 +33,8 @@ function App() {
         {/* Rute untuk admin */}
         <Route path="/dashboard" element={<AdminDashboard />} />
         <Route path="/transaksi" element={<TransaksiAdmin />} />
+        <Route path="/kategori" element={<KategoriAdmin />} />
+        <Route path="/userAdmin" element={<UserAdmin />} />
         <Route path="/dashboard/FormAddClass" element={<FormAddClass />} />
         <Route path="/FormAddClass" element={<FormAddClass />} />
 

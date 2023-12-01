@@ -16,8 +16,10 @@ function SideBarAdmin() {
   //   navigate("/");
   // };
   const Menus = [
-    { title: "Dashboard", src: "dashboard3", to: "/dashboard" },
-    { title: "Transaksi", src: "transaksi1", to: "/transaksi" },
+    { title: "User", src: "user", to: "/userAdmin" },
+    { title: "Kelas", src: "list", to: "/dashboard" },
+    { title: "Transaksi", src: "transaks", to: "/transaksi" },
+    { title: "Kategori Kelas", src: "category", to: "/kategori" },
     
   ];
  

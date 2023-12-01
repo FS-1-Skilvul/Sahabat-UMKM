@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../App.css";
 import Layout from "./Layout";
-import FormAddClass from "../components/FormAddClass";
 const App = () => {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
     // Fetch data from the "/kelas" endpoint
-    fetch("https://backend-production-4c5b.up.railway.app/kategori")
+    fetch("https://backend-production-4c5b.up.railway.app/kelas")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -30,7 +29,7 @@ const App = () => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        // Berhasil menghapus, perbarui state atau lakukan tindakan lain jika diperlukan
+        // Berhasil menghapus, perbarui stvate atau lakukan tindakan lain jika diperlukan
         setCourses((prevCourses) => prevCourses.filter((course) => course.id !== categoryId));
       })
       .catch((error) => console.error('Error deleting category:', error));
@@ -76,9 +75,9 @@ const App = () => {
                   <td className="text-left align-top">{course.durasi}</td>
                   <td className="text-left align-top">{course.rating}</td>
                   <td className="text-left align-top"><a href="formaddclass">
-                    <div className="edit-delete">
+                    <div className="edit-delete flex items-center">
                     <a href="#">Edit</a>
-                    <a href="#" className="ml-3 font-regular rounded-md bg-red-500 p-1" onClick={() => handleDeleteCategory(course.id)}>Hapus</a>
+                    <a href="#" className="ml-3  font-regular rounded-md bg-red-500 p-1" onClick={() => handleDeleteCategory(course.id)}>Hapus</a>
 
                     </div>
                     </a></td>

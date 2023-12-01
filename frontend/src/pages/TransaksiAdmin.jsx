@@ -24,7 +24,7 @@ function TransaksiAdmin() {
       <div className="flex flex-col py-5">
         {/* <SideBarAdmin /> */}
 
-        <h1 className="flex justify-center font-bold pb-7 text-2xl">Laporan Transaksi</h1>
+        <h1 className="flex justify-left font-bold text-2xl font-montserrat mt-5 text-primary">Laporan Transaksi</h1>
         <table className="table-auto m-4 border-collapse ">
           <thead className="">
             <tr className=" text-left font-bold  ring-offset-neutral-400">
