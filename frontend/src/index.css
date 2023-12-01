@@ -3,7 +3,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +20,7 @@
   }
 
   .input {
-    @apply sm:flex-1 max-sm:w-full text-base leading-normal pl-5 max-sm:p-5 outline-none sm:border-none border max-sm:rounded-full;
+    @apply sm:flex-1 max-sm:w-full text-base leading-normal text-slate-400 pl-5 max-sm:p-5 outline-none sm:border-none border max-sm:border-slate-400 max-sm:rounded-full;
   }
 }
 
