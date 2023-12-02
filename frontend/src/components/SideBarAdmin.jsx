@@ -16,8 +16,8 @@ function SideBarAdmin() {
   //   navigate("/");
   // };
   const Menus = [
+    { title: "Kelas", src: "list", to: "/dataKelas" },
     { title: "User", src: "user", to: "/userAdmin" },
-    { title: "Kelas", src: "list", to: "/dashboard" },
     { title: "Transaksi", src: "transaks", to: "/transaksi" },
     { title: "Kategori Kelas", src: "category", to: "/kategori" },
     

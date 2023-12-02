@@ -18,19 +18,28 @@ const LoginPage = () => {
       })
       .then((res) => {
         // Simpan token ke cookie
-        const userRole = parseInt( res.data.role);
+        const userRole =  res.data.role;
         console.log("User Role:", userRole);
         Cookies.set("token", res.data.token);
         console.log("berhasil login");
         console.log("Navigating to admin/dashboard or user/dashboard...");
   
-
-        //cek role
-        if (userRole == 1) {
+        
+        if (!isNaN(userRole)) {
+          // Role valid
+          console.log("User Role:", userRole);
           navigate("/admin-dashboard");
-        } else if (userRole == 0) {
-          navigate("/user-dashboard");
+          // ...
+        } else {
+          // Role tidak valid
+          console.log("Invalid user role:", res.data.role);
         }
+        
+        //cek role
+        // // navigate("/user-dashboard");
+        // if (userRole == 1) {
+        // } else if (userRole == 0) {
+        // }
       })
       .catch((err) => {
         if (err.response) {
