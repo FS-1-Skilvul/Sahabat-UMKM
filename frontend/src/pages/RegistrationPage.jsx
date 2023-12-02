@@ -6,6 +6,7 @@ const RegistrationPage = (req,res) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
   const [konfirmasiPassword, konfirmasi_password] = useState("");
 
   const handleSubmit = (event) => {
@@ -51,7 +52,7 @@ const RegistrationPage = (req,res) => {
       </h1>
       <form onSubmit={handleSubmit} action="#" className="p-6 flex flex-col border-4 border-umkm3 w-96 rounded h-5/6 flex flex-col justify-between">
         <div>
-          <h3 className="text-center font-semibold text-2xl">Masuk</h3>
+          <h3 className="text-center font-semibold text-2xl font-poppins mb-3">Buat Akun</h3>
           <label htmlFor="nama" className="block font-bold mb-2">
             Nama Lengkap
           </label>
@@ -79,7 +80,7 @@ const RegistrationPage = (req,res) => {
              Daftar
           </button>
           <p className="text-center mx-2">
-            Sudah Punya Akun? <span className="text-blue-500 font-semibold">Masuk</span>
+            Sudah Punya Akun? <span className="text-blue-500 font-semibold"><a href="/login">Masuk</a> </span>
           </p>
         </div>
       </form>

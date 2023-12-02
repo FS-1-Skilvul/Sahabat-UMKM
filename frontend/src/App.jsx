@@ -18,6 +18,8 @@ import HalamanKelas from "./pages/HalamanKelas";
 import KelasSaya from "./pages/KelasSaya";
 import RegistrationPage from "./pages/RegistrationPage";
 import Login from "./pages/LoginPage";
+import DataKelas from "./components/DataKelas";
+import ListKelas from "./pages/ListKelas";
 
 function App() {
   // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -37,8 +39,9 @@ function App() {
      <Route path="/login" element={<Login />} />
 
      {/* Rute untuk admin */}
-     <Route path="/admin-dashboard" element={<AdminDashboard />} />
+     {/* <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
      <Route path="/transaksi" element={<TransaksiAdmin />} />
+     <Route path="/datakelas" element={<AdminDashboard />} />
      <Route path="/kategori" element={<KategoriAdmin />} />
      <Route path="/userAdmin" element={<UserAdmin />} />
      <Route path="/dashboard/FormAddClass" element={<FormAddClass />} />
