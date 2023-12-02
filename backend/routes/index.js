@@ -1,9 +1,8 @@
-
-const express = require('express');
-const route = express.Router()
-const authRoute = require('./auth-route');
-const userRoute = require('./user.route');
-const verifyToken = require('../middleware/token');
+const express = require("express");
+const route = express.Router();
+const authRoute = require("./auth-route");
+const userRoute = require("./user.route");
+const verifyToken = require("../middleware/token");
 
 const transaksiRoute = require("./transaksi-route");
 
@@ -16,8 +15,7 @@ route.use("/kategori", kategoriRoutes);
 route.use("/daftar-kelas", daftarKelasRoutes);
 
 route.use("/auth", authRoute);
-route.use("/users", verifyToken,userRoute);
+route.use("/users", verifyToken, userRoute);
 route.use("/transaksi", transaksiRoute);
-
 
 module.exports = route;
