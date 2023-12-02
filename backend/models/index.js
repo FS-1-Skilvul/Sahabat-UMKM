@@ -1,4 +1,3 @@
-
 "use strict";
 require("dotenv").config();
 const fs = require("fs");
@@ -45,6 +44,5 @@ Object.keys(db).forEach((modelName) => {
 });
 
 db.sequelize = sequelize;
-
 
 module.exports = db;
