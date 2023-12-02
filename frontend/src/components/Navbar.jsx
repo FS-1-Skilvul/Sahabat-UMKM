@@ -37,14 +37,14 @@ function Navbar() {
           >
             {navLinks.map((link) => (
               <li key={link.label} className="md:ml-8 text-lg md:my-0 my-7">
-                <a className={`font-montserrat text-gray-800 hover:text-gray-400 ${activeNav === link.label ? "active" : ""}  `} href={link.to}>
+                <a className={`font-montserrat text-white hover:text-gray-400 ${activeNav === link.label ? "active" : ""}  `} href={link.to}>
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
           <div className="flex gap-2 leading-normal font-montserrat max-lg:hidden wide:mr-24 items-center">
-            <a href="/register" className="font px-5 py-1 text-white hover:text-primary">
+            <a href="/register" className="font px-5 py-1 text-white  hover:text-primary">
               Buat Akun
             </a>
             {/* <span>/</span> */}
