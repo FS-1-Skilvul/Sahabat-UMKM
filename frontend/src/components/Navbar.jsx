@@ -1,23 +1,21 @@
 import logo from "../assets/images/logo.png";
-import { navLinks } from "../constants";
+import { navLandingLinks, navLoginLinks } from "../constants";
 import { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
 import React from "react";
 import CariKelasPage from "../pages/CariKelasPage";
 
 function Navbar() {
-
-//    const { isAuthenticated } = useContext(AuthContext);
-
-//  const links = isAuthenticated ? navLinks.login : navLinks.landing;
   const handleClick = (event) => {
     event.preventDefault();
     const id = event.target.getAttribute("href");
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   };
   const [activeNav, setActiveNav] = useState("Beranda");
+  const { isUserLogin } = useAuth();
+  console.log(isUserLogin);
 
   let [open, setOpen] = useState(false);
-  // if (isLogin) {
   return (
     <>
       <header className="fixed top-0 left-0  w-full shadow-md">
@@ -26,7 +24,10 @@ function Navbar() {
             <img src={logo} alt="logo" width={140} height={40} />
           </a>
 
-          <div onClick={() => setOpen(!open)} className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden ">
+          <div
+            onClick={() => setOpen(!open)}
+            className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden "
+          >
             <ion-icon name={open ? "close" : "menu"}></ion-icon>
           </div>
 
@@ -35,27 +36,62 @@ function Navbar() {
               open ? "top-20 " : "top-[-490px]"
             }`}
           >
-            {navLinks.map((link) => (
-              <li key={link.label} className="md:ml-8 text-lg md:my-0 my-7">
-                <a className={`font-montserrat text-white hover:text-gray-400 ${activeNav === link.label ? "active" : ""}  `} href={link.to}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {isUserLogin
+              ? navLoginLinks.map((link) => (
+                  <li key={link.label} className="md:ml-8 text-lg md:my-0 my-7">
+                    <a
+                      className={`font-montserrat text-white hover:text-gray-400 ${
+                        activeNav === link.label ? "active" : ""
+                      }  `}
+                      href={link.to}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))
+              : navLandingLinks.map((link) => (
+                  <li key={link.label} className="md:ml-8 text-lg md:my-0 my-7">
+                    <a
+                      className={`font-montserrat text-white hover:text-gray-400 ${
+                        activeNav === link.label ? "active" : ""
+                      }  `}
+                      href={link.to}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
           </ul>
           <div className="flex gap-2 leading-normal font-montserrat max-lg:hidden wide:mr-24 items-center">
-            <a href="/register" className="font px-5 py-1 text-white  hover:text-primary">
-              Buat Akun
-            </a>
-            {/* <span>/</span> */}
-            <a href="/login" className="bg-primary px-8 py-2 rounded-lg font-medium text-white">
-              Masuk
-            </a>
+            {isUserLogin ? (
+              <div className="rounded-full overflow-hidden h-10 w-10 border-[1.5px] border-primary cursor-pointer">
+                <img
+                  src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ) : (
+              <div>
+                <a
+                  href="/register"
+                  className="font px-5 py-1 text-white  hover:text-primary"
+                >
+                  Buat Akun
+                </a>
+                <a
+                  href="/login"
+                  className="bg-primary px-8 py-2 rounded-lg font-medium text-white"
+                >
+                  Masuk
+                </a>
+              </div>
+            )}
           </div>
         </nav>
       </header>
     </>
   );
-            }
+}
 // }
 export default Navbar;

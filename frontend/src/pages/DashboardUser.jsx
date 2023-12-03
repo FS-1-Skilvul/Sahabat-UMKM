@@ -4,10 +4,14 @@ import { FaCheck } from "react-icons/fa";
 import { GrCycle } from "react-icons/gr";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
+import { useAuth } from "../contexts/AuthContext";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function DashboardUser() {
+  const { userData } = useAuth();
+  console.log(userData);
+
   // Sample data
   const data = {
     labels: ["Sedang Berlangsung", "Diselesaikan"],
@@ -27,9 +31,9 @@ export default function DashboardUser() {
   };
 
   return (
-    <div className="pt-12 px-12 font-poppins">
+    <div className="pt-24 px-12 font-poppins">
       <h1 className="text-3xl text-primary font-semibold">Dashboard</h1>
-      <span className="text-primary text-xl">Halo User </span>
+      <span className="text-primary text-xl">Halo {userData.nama}</span>
       <PiHandWavingBold className="inline-block text-2xl" />
 
       <div id="dashboard-data" className="flex gap-10 mt-10 max-sm:flex-col">
