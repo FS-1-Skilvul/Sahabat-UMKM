@@ -23,6 +23,8 @@ function KategoriAdmin() {
     <Layout>
       <div className="flex flex-col py-5">
         {/* <SideBarAdmin /> */}
+        
+        <a href="/tambah-kategori">Tambah Kategori</a>
         <h1 className="flex justify-left font-bold text-2xl font-montserrat mt-5 text-primary"> Kategori Kelas</h1>
         <table className="table-auto m-4 border-collapse ">
           <thead className="">

@@ -20,6 +20,7 @@ import RegistrationPage from "./pages/RegistrationPage";
 import Login from "./pages/LoginPage";
 import DataKelas from "./components/DataKelas";
 import ListKelas from "./pages/ListKelas";
+import TambahKategori from "./pages/TambahKategori";
 
 function App() {
   // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -39,10 +40,11 @@ function App() {
      <Route path="/login" element={<Login />} />
 
      {/* Rute untuk admin */}
-     {/* <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
+     <Route path="/admin-dashboard" element={<AdminDashboard />} />
      <Route path="/transaksi" element={<TransaksiAdmin />} />
      <Route path="/datakelas" element={<AdminDashboard />} />
      <Route path="/kategori" element={<KategoriAdmin />} />
+     <Route path="/tambah-kategori" element={<TambahKategori />} />
      <Route path="/userAdmin" element={<UserAdmin />} />
      <Route path="/dashboard/FormAddClass" element={<FormAddClass />} />
      <Route path="/FormAddClass" element={<FormAddClass />} />
