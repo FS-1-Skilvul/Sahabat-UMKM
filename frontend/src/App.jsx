@@ -20,34 +20,21 @@ import RegistrationPage from "./pages/RegistrationPage";
 import Login from "./pages/LoginPage";
 import DataKelas from "./components/DataKelas";
 import ListKelas from "./pages/ListKelas";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
+import User from "./RoutesUser";
+import Admin from "./RoutesAdmin";
 
 function App() {
   // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   // const userRole = useSelector(state => state.auth.userRole);
   return (
     <>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/search" element={<CariKelasPage />} />
-        <Route path="/user-dashboard" element={<DashboardUser />} />
-        <Route path="/search/:id" element={<DetailKelas />} />
-        <Route path="/payment" element={<Pembayaran />} />
-        <Route path="/kelas/:id" element={<HalamanKelas />} />
-        <Route path="/kelasku" element={<KelasSaya />} />
-
+        <Route path="/user/*" element={<User />} /> // * untuk nested route user
+        <Route path="/admin/*" element={<Admin />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/login" element={<Login />} />
-
-        {/* Rute untuk admin */}
-        {/* <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
-        <Route path="/transaksi" element={<TransaksiAdmin />} />
-        <Route path="/datakelas" element={<AdminDashboard />} />
-        <Route path="/kategori" element={<KategoriAdmin />} />
-        <Route path="/userAdmin" element={<UserAdmin />} />
-        <Route path="/dashboard/FormAddClass" element={<FormAddClass />} />
-        <Route path="/FormAddClass" element={<FormAddClass />} />
       </Routes>
     </>
   );

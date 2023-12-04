@@ -1,19 +1,20 @@
 import logo from "../assets/images/logo.png";
 import { navLandingLinks, navLoginLinks } from "../constants";
 import { useState } from "react";
-import { useAuth } from "../contexts/AuthContext";
 import React from "react";
 import CariKelasPage from "../pages/CariKelasPage";
+import { useLocation } from "react-router-dom";
 
 function Navbar() {
+  const location = useLocation();
+  const isLandingPage = location.pathname === "/";
+
   const handleClick = (event) => {
     event.preventDefault();
     const id = event.target.getAttribute("href");
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   };
   const [activeNav, setActiveNav] = useState("Beranda");
-  const { isUserLogin } = useAuth();
-  console.log(isUserLogin);
 
   let [open, setOpen] = useState(false);
   return (
@@ -36,7 +37,7 @@ function Navbar() {
               open ? "top-20 " : "top-[-490px]"
             }`}
           >
-            {isUserLogin
+            {!isLandingPage
               ? navLoginLinks.map((link) => (
                   <li key={link.label} className="md:ml-8 text-lg md:my-0 my-7">
                     <a
@@ -63,7 +64,7 @@ function Navbar() {
                 ))}
           </ul>
           <div className="flex gap-2 leading-normal font-montserrat max-lg:hidden wide:mr-24 items-center">
-            {isUserLogin ? (
+            {!isLandingPage ? (
               <div className="rounded-full overflow-hidden h-10 w-10 border-[1.5px] border-primary cursor-pointer">
                 <img
                   src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"

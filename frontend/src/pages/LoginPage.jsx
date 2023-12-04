@@ -32,11 +32,11 @@ const LoginPage = () => {
           // Role valid
           if (userRole == true) {
             console.log("User Role:", userRole);
-            navigate("/admin-dashboard");
+            navigate("/admin/datakelas");
           } else if (userRole == false) {
             console.log("User Role:", userRole);
             // login(); // set isUserLogin to true
-            navigate("/user-dashboard");
+            navigate("/user/dashboard");
           }
           // ...
         } else {
