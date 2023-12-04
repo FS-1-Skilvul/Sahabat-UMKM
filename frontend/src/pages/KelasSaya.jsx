@@ -49,7 +49,7 @@ export default function KelasSaya() {
       </div>
       <div className="flex gap-10 flex-wrap justify-center mt-24">
         {kelas.map((item) => (
-          <Link to={`/kelas/${item.id}`}>
+          <Link to={`/user/kelas/${item.id}`}>
             <KelasSayaCard key={item.id} kelas={item} />
           </Link>
         ))}

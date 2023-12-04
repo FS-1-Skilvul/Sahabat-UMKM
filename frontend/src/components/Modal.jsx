@@ -71,7 +71,7 @@ export default function Modal({ showModal, setShowModal, paymentStatus }) {
             >
               Kembali
             </button>
-            <Link to="/kelas">
+            <Link to="/user/kelas">
               <button className="rounded-lg bg-blue-keuangan border-[1.5px] border-blue-keuangan px-10 py-1 text-primary hover:bg-white font-medium duration-300">
                 Buka Kelas
               </button>

@@ -10,9 +10,13 @@ export default function HalamanKelas() {
         <KelasTitle />
       </header>
       <main className="px-12 max-sm:px-0 mt-20">
-        <div className="flex gap-10 mb-10 mx-auto max-sm:flex-col">
-          <VideoPlayer />
-          <div className="max-sm:px-10">
+        <div className="flex justify-between gap-8 mb-10 mx-auto max-sm:flex-col">
+          <VideoPlayer
+            videoLink={
+              "https://www.youtube.com/embed/evyIJL8_1XE?si=6Mox_SPixG2Hsm_p"
+            }
+          />
+          <div className="max-sm:px-10 w-[450px]">
             <DetailMentor />
           </div>
         </div>
