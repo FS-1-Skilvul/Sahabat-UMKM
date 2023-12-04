@@ -9,8 +9,6 @@ import KelasSaya from "./pages/KelasSaya";
 import Navbar from "./components/navbar";
 
 function User() {
-  // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-  // const userRole = useSelector(state => state.auth.userRole);
   return (
     <>
       <Navbar />
@@ -19,7 +17,7 @@ function User() {
         <Route path="/search" element={<CariKelasPage />} />
         <Route path="/dashboard" element={<DashboardUser />} />
         <Route path="/search/:id" element={<DetailKelas />} />
-        <Route path="/payment" element={<Pembayaran />} />
+        <Route path="/payment/:id" element={<Pembayaran />} />
         <Route path="/kelas/:id" element={<HalamanKelas />} />
         <Route path="/myclass" element={<KelasSaya />} />
       </Routes>

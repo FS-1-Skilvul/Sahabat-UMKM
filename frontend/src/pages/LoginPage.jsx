@@ -36,7 +36,7 @@ const LoginPage = () => {
         } else {
           // Regular user role
           console.log("User is a regular user");
-          navigate("/user-dashboard");
+          navigate("/user/dashboard");
         }
       })
       .catch((err) => {

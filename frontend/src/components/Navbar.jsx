@@ -2,7 +2,6 @@ import logo from "../assets/images/logo.png";
 import { navLandingLinks, navLoginLinks } from "../constants";
 import { useState } from "react";
 import React from "react";
-import CariKelasPage from "../pages/CariKelasPage";
 import { useLocation } from "react-router-dom";
 
 function Navbar() {

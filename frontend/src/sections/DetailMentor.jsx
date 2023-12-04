@@ -1,4 +1,5 @@
-export default function DetailMentor() {
+export default function DetailMentor({ data }) {
+  const { nama_pengajar, detail_pengajar } = data;
   return (
     <section id="detail-mentor" className="max-w-3xl">
       <h2 className="mb-3 text-[28px] font-semibold text-gray-900">
@@ -15,19 +16,14 @@ export default function DetailMentor() {
           </div>
           <div className="w-fit max-lg:text-center">
             <h3 className="text-primary text-[20px] font-semibold">
-              Joko Anwar
+              {nama_pengajar}
             </h3>
             <span className="text-primary font-semibold">
               Ahli Manajemen Keuangan dan Konsultan Keuangan
             </span>
           </div>
         </div>
-        <p className="max-lg:text-center">
-          Joko Anwar adalah seorang profesional berpengalaman dalam bidang
-          manajemen keuangan. Dengan latar belakang yang kaya dalam industri
-          keuangan, ia telah memimpin banyak perusahaan dalam mengelola keuangan
-          mereka dengan efisien.
-        </p>
+        <p className="max-lg:text-center">{detail_pengajar}</p>
       </div>
     </section>
   );

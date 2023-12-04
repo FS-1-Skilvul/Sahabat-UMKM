@@ -2,7 +2,13 @@ import { useEffect } from "react";
 import { FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export default function Modal({ showModal, setShowModal, paymentStatus }) {
+export default function Modal({
+  id_kelas,
+  nama_kelas,
+  showModal,
+  setShowModal,
+  paymentStatus,
+}) {
   // menghilangkan scrolling ketika modal ditampilkan
   useEffect(() => {
     if (showModal) {
@@ -63,7 +69,7 @@ export default function Modal({ showModal, setShowModal, paymentStatus }) {
             <FaCheck className="text-4xl text-green-900" />
           </div>
           <h1 className="text-xl font-medium mb-3">Pembayaran Berhasil</h1>
-          <p className="text-xl mb-7">Manajemen Keuangan Bisnis</p>
+          <p className="text-xl mb-7">{nama_kelas}</p>
           <div className="flex justify-center mt-8 gap-6">
             <button
               onClick={() => setShowModal(false)}
@@ -71,7 +77,7 @@ export default function Modal({ showModal, setShowModal, paymentStatus }) {
             >
               Kembali
             </button>
-            <Link to="/user/kelas">
+            <Link to={`/user/kelas/${id_kelas}`}>
               <button className="rounded-lg bg-blue-keuangan border-[1.5px] border-blue-keuangan px-10 py-1 text-primary hover:bg-white font-medium duration-300">
                 Buka Kelas
               </button>

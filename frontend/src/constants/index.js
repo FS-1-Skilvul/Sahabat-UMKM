@@ -8,7 +8,7 @@ import Desain from "../assets/icons/desain.png";
 
 export const navLandingLinks = [
   { to: "/", label: "Beranda" },
-  { to: "/search", label: "Cari Kelas " },
+  { to: "/user/search", label: "Cari Kelas " },
   // { to: "/AdminDashboard", label: "Mentor" },
   { to: "#tentang-section", label: "Tentang" },
 ];
