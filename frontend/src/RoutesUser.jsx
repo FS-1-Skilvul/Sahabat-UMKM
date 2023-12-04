@@ -6,7 +6,7 @@ import DashboardUser from "./pages/DashboardUser";
 import Pembayaran from "./pages/Pembayaran";
 import HalamanKelas from "./pages/HalamanKelas";
 import KelasSaya from "./pages/KelasSaya";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar";
 
 function User() {
   // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);

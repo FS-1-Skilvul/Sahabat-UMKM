@@ -23,7 +23,7 @@ export default function DataKelas({ data }) {
         <p id="registerCount" className="text-sm">
           53 Orang Telah Mendaftar Kelas Ini
         </p>
-        <Link to="/payment">
+        <Link to="/user/payment">
           <button className="border-[1.5px] border-primary bg-primary text-white px-5 py-1 rounded-lg mt-3 duration-300 hover:bg-white hover:text-primary">
             Beli Kelas
           </button>

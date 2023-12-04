@@ -8,9 +8,7 @@ export const AuthProvider = ({ children }) => {
   const storedUserData = Cookies.get("userData");
 
   const [isUserLogin, setIsUserLogin] = useState(storedAuthToken);
-  const [userData, setUserData] = useState(
-    storedUserData ? JSON.parse(storedUserData) : null
-  );
+  const [userData, setUserData] = useState(JSON.parse(storedUserData));
   //   const login = () => {
   //     setIsUserLogin(true);
   //   };

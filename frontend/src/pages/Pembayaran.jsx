@@ -7,6 +7,7 @@ import Modal from "../components/Modal";
 export default function Pembayaran() {
   const [showModal, setShowModal] = useState(false);
   const [selectedMethod, setSelectedMethod] = useState(null);
+  const [paymentStatus, setPaymentStatus] = useState(null);
 
   const handlePaymentMethodChange = (method) => {
     setSelectedMethod(method);
@@ -17,7 +18,13 @@ export default function Pembayaran() {
       alert("Pilih Metode Pembayaran!");
     } else {
       console.log(selectedMethod);
+      setPaymentStatus("inProgress"); // Set the transaction status to in-progress
+      // Simulate an asynchronous process (e.g., API call)
       setShowModal(true);
+      setTimeout(() => {
+        setPaymentStatus("success"); // Set the transaction status to success
+        setShowModal(true);
+      }, 2000);
     }
   };
   return (
@@ -81,7 +88,13 @@ export default function Pembayaran() {
           </div>
         </div>
       </div>
-      {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
+      {showModal && (
+        <Modal
+          showModal={showModal}
+          setShowModal={setShowModal}
+          paymentStatus={paymentStatus}
+        />
+      )}
     </section>
   );
 }
