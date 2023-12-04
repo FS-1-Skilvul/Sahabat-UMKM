@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -21,34 +21,23 @@ const LoginPage = () => {
       .then((res) => {
         // Simpan token ke cookie
         const userRole = res.data.data.role;
-        console.log(res);
         console.log("User Role:", userRole);
+        // console.log('data :', token)
         Cookies.set("token", res.data.token);
+        console.log("token", res.data.token);
         Cookies.set("userData", JSON.stringify(res.data.data));
         console.log("berhasil login");
         console.log("Navigating to admin/dashboard or user/dashboard...");
 
-        if (!isNaN(userRole)) {
-          // Role valid
-          if (userRole == true) {
-            console.log("User Role:", userRole);
-            navigate("/admin/datakelas");
-          } else if (userRole == false) {
-            console.log("User Role:", userRole);
-            // login(); // set isUserLogin to true
-            navigate("/user/dashboard");
-          }
-          // ...
+        if (userRole === true) {
+          // Admin role
+          console.log("User is an admin");
+          navigate("/admin-dashboard");
         } else {
-          // Role tidak valid
-          console.log("Invalid user role:", res.data.role);
+          // Regular user role
+          console.log("User is a regular user");
+          navigate("/user-dashboard");
         }
-
-        //cek role
-        // // navigate("/user-dashboard");
-        // if (userRole == 1) {
-        // } else if (userRole == 0) {
-        // }
       })
       .catch((err) => {
         if (err.response) {
