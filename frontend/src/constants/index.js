@@ -14,9 +14,9 @@ export const navLandingLinks = [
 ];
 
 export const navLoginLinks = [
-  { to: "/user-dashboard", label: "Dashboard" },
-  { to: "/search", label: "Cari Kelas" },
-  { to: "/kelasku", label: "Kelas Saya" },
+  { to: "/user/dashboard", label: "Dashboard" },
+  { to: "/user/search", label: "Cari Kelas" },
+  { to: "/user/myclass", label: "Kelas Saya" },
 ];
 // {
 // landing:

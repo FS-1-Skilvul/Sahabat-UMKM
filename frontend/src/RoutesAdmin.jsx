@@ -12,20 +12,6 @@ function Admin() {
   return (
     <>
       <Routes>
-        {/* <Route path="/" element={<Home />} />
-        <Route path="/user" element={<User />} />
-        <Route path="/admin" element={<Admin />} />
-        
-        <Route path="/search" element={<CariKelasPage />} />
-        <Route path="/user-dashboard" element={<DashboardUser />} />
-        <Route path="/search/:id" element={<DetailKelas />} />
-        <Route path="/payment" element={<Pembayaran />} />
-        <Route path="/kelas/:id" element={<HalamanKelas />} />
-        <Route path="/kelasku" element={<KelasSaya />} />
-
-        <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/login" element={<Login />} /> */}
-
         {/* Rute untuk admin */}
         {/* <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
         <Route path="/transaksi" element={<TransaksiAdmin />} />

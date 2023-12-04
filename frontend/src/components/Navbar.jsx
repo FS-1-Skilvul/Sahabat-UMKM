@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 
 function Navbar() {
   const location = useLocation();
-  const isLandingPage = location.pathname === "/";
+  const isLandingPage = location.pathname === "/"; // cek apakah membuka halaman landingpage
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -19,7 +19,7 @@ function Navbar() {
   let [open, setOpen] = useState(false);
   return (
     <>
-      <header className="fixed top-0 left-0  w-full shadow-md">
+      <header className="fixed top-0 left-0  w-full shadow-md z-50">
         <nav className=" md:flex justify-between   py-5 md:px-10 px-7  bg-secondary">
           <a href="/">
             <img src={logo} alt="logo" width={140} height={40} />
@@ -37,7 +37,7 @@ function Navbar() {
               open ? "top-20 " : "top-[-490px]"
             }`}
           >
-            {!isLandingPage
+            {!isLandingPage // jika halaman landing page, render navbar untuk landing page
               ? navLoginLinks.map((link) => (
                   <li key={link.label} className="md:ml-8 text-lg md:my-0 my-7">
                     <a

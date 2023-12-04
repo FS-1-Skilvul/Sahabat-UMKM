@@ -16,25 +16,12 @@ function User() {
       <Navbar />
       <Routes>
         <Route path="/" element={<DashboardUser />} />
-
         <Route path="/search" element={<CariKelasPage />} />
         <Route path="/dashboard" element={<DashboardUser />} />
         <Route path="/search/:id" element={<DetailKelas />} />
         <Route path="/payment" element={<Pembayaran />} />
         <Route path="/kelas/:id" element={<HalamanKelas />} />
-        <Route path="/kelasku" element={<KelasSaya />} />
-
-        {/* <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/login" element={<Login />} /> */}
-
-        {/* Rute untuk admin */}
-        {/* <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
-        {/* <Route path="/transaksi" element={<TransaksiAdmin />} />
-        <Route path="/datakelas" element={<AdminDashboard />} />
-        <Route path="/kategori" element={<KategoriAdmin />} />
-        <Route path="/userAdmin" element={<UserAdmin />} />
-        <Route path="/dashboard/FormAddClass" element={<FormAddClass />} />
-        <Route path="/FormAddClass" element={<FormAddClass />} /> */}
+        <Route path="/myclass" element={<KelasSaya />} />
       </Routes>
     </>
   );
