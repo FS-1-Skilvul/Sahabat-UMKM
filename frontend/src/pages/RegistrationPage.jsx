@@ -78,7 +78,7 @@ const RegistrationPage = (req, res) => {
             Daftar
           </button>
           <p className="text-center mx-2">
-            Sudah Punya Akun? <span className="text-blue-500 font-semibold">Masuk</span>
+            Sudah Punya Akun? <span className="text-blue-500 font-semibold"> <a href="/login">Masuk</a> </span>
           </p>
         </div>
       </form>

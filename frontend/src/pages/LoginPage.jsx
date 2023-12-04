@@ -66,7 +66,7 @@ const LoginPage = () => {
         </div>
 
         <div>
-          <button type="submit" className="bg-primary p-3 text-white font-semibold rounded-[16px] w-[100%]">
+          <button  type="submit" className="bg-primary p-3 text-white font-semibold rounded-[16px] w-[100%]">
             Masuk
           </button>
           <p className="text-center mx-2">

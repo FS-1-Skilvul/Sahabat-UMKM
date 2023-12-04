@@ -1,38 +1,31 @@
 import { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 import Layout from "./Layout";
+import axios from "axios";
 function UserAdmin() {
     const [users, setUsers] = useState([]);
-    useEffect(() => {
-      // Fetch data from the "/kelas" endpoint
-      fetch("https://backend-production-4c5b.up.railway.app/user")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          // Assuming data is in the format you provided
-          setUsers(data.data);
-        })
-        .catch((error) => console.error("Error fetching data:", error));
-    }, []);
+    const token = Cookies.get('token');
 
-    const handleDeleteCategory = (categoryId) => {
-        // Mengirim permintaan DELETE ke API
-        fetch(`https://backend-production-4c5b.up.railway.app/kategori/${categoryId}`, {
-          method: 'DELETE',
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            // Berhasil menghapus, perbarui stvate atau lakukan tindakan lain jika diperlukan
-            setUsers((prevUsers) => prevUsers.filter((user) => user.id !== categoryId));
-          })
-          .catch((error) => console.error('Error deleting category:', error));
-      };
-      
+    const fetchData = async () => {
+      try{
+        const response = await axios.get('https://backend-production-4c5b.up.railway.app/user/all',{
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setUsers (response.data.data);
+      }
+      catch(error){
+        console.error('Error fetching data:', error);
+      }
+    }
+    useEffect(() => {
+      fetchData();
+    },[]);
+
+
+    
+  
   
     return (
       <Layout>
@@ -41,30 +34,30 @@ function UserAdmin() {
           <h1 className="flex justify-left font-bold text-2xl font-montserrat mt-5 text-primary"> Daftar Client</h1>
           <table className="table-auto m-4 border-collapse ">
             <thead className="">
-              <tr className=" text-center font-bold  ring-offset-neutral-400">
-                <th>ID</th>
-                <th>Nama Kategori</th>
-                <th>Deskripsi</th>
-                <th>Aksi</th>
+              <tr className="  font-bold  ring-offset-neutral-400 bg-secondary text-white">
+                <th className="text-left">ID</th>
+                <th>Nama User</th>
+                <th>Email</th>
+               
               </tr>
             </thead>
             <tbody className="min-h-screen">
-              {users.map((user) => (
-                <tr key={user.id} className="w-24">
-                  <td className="text-left align-top">{user.id}</td>
-                  <td className="text-left align-top">{user.nama_kategori}</td>
-                  <td className="text-left align top">{user.deskripsi}</td>
-                  <td className="text-left align-top"><a href="formaddclass">
-                    <div className="edit-delete flex items-center justify-center">
-                    <a href="#" className=" font-poppins text-sm font-semibold rounded-md bg-red-500 p-[6px]" onClick={() => handleDeleteCategory(user.id)}>Hapus</a>
-                    </div>
-                    </a></td>
+            {Array.isArray(users) && users.length > 0 ? (
+              users.map((user) => (
+                <tr key={user.id} className="w-24 text-center">
+                  <td className="text- align-top">{user.id}</td>
+                  <td className="text- align-top">{user.nama}</td>
+                  <td className="text- align top">{user.email}</td>
+                 
                 </tr>
-              ))}
-            </tbody>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="4" className="text-center">No users found.</td>
+              </tr>
+            )}
+          </tbody>
           </table>
-          {/* Konten utama */}
-          {/* <Outlet /> */}
         </div>
       </Layout>
   )
