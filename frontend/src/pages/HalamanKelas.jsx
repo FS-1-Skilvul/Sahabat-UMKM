@@ -29,11 +29,7 @@ export default function HalamanKelas() {
       </header>
       <main className="px-12 max-sm:px-0 mt-20">
         <div className="flex justify-between gap-8 mb-10 mx-auto max-sm:flex-col">
-          <VideoPlayer
-            videoLink={
-              "https://www.youtube.com/embed/ENu1Un_yTsw?si=orxZ9BLOmR6Jtiev"
-            }
-          />
+          <VideoPlayer videoLink={kelas.video} />
           <div className="max-sm:px-10 w-[450px]">
             <DetailMentor data={kelas} />
           </div>
