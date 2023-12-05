@@ -42,7 +42,7 @@ function KelasPopuler() {
                 course.map((item) => (
                   <CardFilter key={item.id} course={item} />
                 ))
-              )}
+              
             </div>
           </div>
         </>

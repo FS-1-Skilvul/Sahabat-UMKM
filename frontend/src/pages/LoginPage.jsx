@@ -28,7 +28,6 @@ const LoginPage = () => {
         // Cookies.set("userData", JSON.stringify(res.data.data));
         console.log("berhasil login");
         console.log("Navigating to admin/dashboard or user/dashboard...");
-        login(res.data.token, JSON.stringify(res.data.data)); // stored user login data to context
 
         if (userRole === true) {
           // Admin role
@@ -37,6 +36,7 @@ const LoginPage = () => {
         } else {
           // Regular user role
           console.log("User is a regular user");
+          login(res.data.token, JSON.stringify(res.data.data)); // stored user login data to context
           navigate("/user/dashboard");
         }
       })
