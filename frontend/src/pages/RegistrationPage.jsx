@@ -54,10 +54,10 @@ const RegistrationPage = (req, res) => {
         <div className="hidden md:block md:absolute md:top-0 md:start-1/2 md:end-0 h-screen bg-[url('https://images.unsplash.com/photo-1700190827495-f9d8eec1a08c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-no-repeat bg-center bg-cover"></div>
           <div className=" md:w-1/2 xl:pe-0 xl:w-5/12">
             {/* <!-- Title --> */}
-            <h1 className="text-4xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-4xl    lg:leading-tight dark:text-gray-800">
-              Mengatasi masalah untuk setiap  <span className="text-blue-600 dark:text-secondary">umkm</span>
+            <h1 className="text-4xl text-gray-800 font-bold md:text-4xl md:leading-tight  lg:text-4xl    lg:leading-tight dark:text-gray-800">
+              Atasi masalah untuk setiap  <span className="text-blue-600 dark:text-secondary">umkm</span>
             </h1>
-            <p className="mt-3 text-base leading-6 text-gray-500"> Bergabunglah dengan kami untuk memperdalam pengetahuan bisnis umkm Anda!</p>
+            <p className="mt-3 text-base leading-6 text-gray-500"> Bergabunglah dengan kami untuk memperdalam pengetahuan bisnis umkm anda!</p>
             {/* <!-- End Title --> */}
 
 

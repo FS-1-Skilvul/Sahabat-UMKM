@@ -9,18 +9,18 @@ function Navbar() {
 //    const { isAuthenticated } = useContext(AuthContext);
 
 //  const links = isAuthenticated ? navLinks.login : navLinks.landing;
-  const handleClick = (event) => {
-    event.preventDefault();
-    const id = event.target.getAttribute("href");
-    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-  };
+  // const handleClick = (event) => {
+  //   event.preventDefault();
+  //   const id = event.target.getAttribute("href");
+  //   document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  // };
   const [activeNav, setActiveNav] = useState("Beranda");
 
   let [open, setOpen] = useState(false);
   // if (isLogin) {
   return (
     <>
-      <header className="fixed top-0 left-0  w-full shadow-md">
+      <header className="fixed top-0 left-0  w-full shadow-md z-50">
         <nav className=" md:flex justify-between   py-5 md:px-10 px-7  bg-secondary">
           <a href="/">
             <img src={logo} alt="logo" width={140} height={40} />
@@ -37,7 +37,7 @@ function Navbar() {
           >
             {navLinks.map((link) => (
               <li key={link.label} className="md:ml-8 text-lg md:my-0 my-7">
-                <a className={`font-montserrat text-white hover:text-gray-400 ${activeNav === link.label ? "active" : ""}  `} href={link.to}>
+                <a className={`font-montserrat text-primary md:text-white hover:text-gray-400 ${activeNav === link.label ? "active" : ""}  `} href={link.to}>
                   {link.label}
                 </a>
               </li>
@@ -57,5 +57,5 @@ function Navbar() {
     </>
   );
             }
-// }
+
 export default Navbar;

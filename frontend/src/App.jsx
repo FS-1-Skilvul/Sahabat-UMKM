@@ -17,6 +17,7 @@ import Login from "./pages/LoginPage";
 import TambahKategori from "./pages/TambahKategori";
 import EditKategori from "./pages/EditKategori";
 import EditDataKelas from "./pages/EditDataKelas";
+import TentangPage from "./pages/TentangPage";
 
 function App() {
   // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -24,6 +25,8 @@ function App() {
   return (
     <Routes>
      <Route path="/" element={<Home />} />
+     <Route path="/tentang" element={<TentangPage />} />
+
      <Route path="/search" element={<CariKelasPage />} />
      <Route path="/user-dashboard" element={<DashboardUser />} />
      <Route path="/search/:id" element={<DetailKelas />} />

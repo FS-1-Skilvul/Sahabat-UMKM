@@ -10,7 +10,7 @@ export const navLinks = [
   { to: "/", label: "Beranda" },
   { to: "/search", label: "Cari Kelas " },
   // { to: "/AdminDashboard", label: "Mentor" },
-  { to: "#tentang-section", label: "Tentang" },
+  { to: "/tentang", label: "Tentang" },
 ];
 // {
 // landing:

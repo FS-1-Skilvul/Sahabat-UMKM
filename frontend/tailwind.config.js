@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import animated from 'tailwindcss-animated';
+import preline from 'preline/plugin';
 export default {
   content: ["index.html", "./src/**/*.{js,ts,jsx,tsx}", 'node_modules/preline/dist/*.js'],
   theme: {
@@ -50,7 +52,6 @@ export default {
     },
   },
   plugins: [
-
-    require('preline/plugin'),
-  ],
+   animated,
+   preline],
 };
