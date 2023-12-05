@@ -1,23 +1,34 @@
 import logo from "../assets/images/logo.png";
-import { navLinks } from "../constants";
+import { navLandingLinks, navLoginLinks } from "../constants";
 import { useState } from "react";
 import React from "react";
-import CariKelasPage from "../pages/CariKelasPage";
+import { useLocation, useNavigate } from "react-router-dom";
+import { MdLogout } from "react-icons/md";
+import { useAuth } from "../contexts/AuthContext";
 
 function Navbar() {
+  const { logout } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isLandingPage = location.pathname === "/"; // cek apakah membuka halaman landingpage
+const isTentangPage = location.pathname === "/tentang";
 
-//    const { isAuthenticated } = useContext(AuthContext);
-
-//  const links = isAuthenticated ? navLinks.login : navLinks.landing;
-  // const handleClick = (event) => {
-  //   event.preventDefault();
-  //   const id = event.target.getAttribute("href");
-  //   document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-  // };
   const [activeNav, setActiveNav] = useState("Beranda");
-
   let [open, setOpen] = useState(false);
-  // if (isLogin) {
+
+  // logout box
+  const [showLogoutBox, setShowLogoutBox] = useState(false);
+
+  const handleAvatarClick = () => {
+    setShowLogoutBox(!showLogoutBox);
+  };
+
+  const handleLogout = () => {
+    console.log("Logging out...");
+    logout();
+    console.log("Logged out");
+    navigate("/login");
+  };
   return (
     <>
       <header className="fixed top-0 left-0  w-full shadow-md z-50">
@@ -26,7 +37,10 @@ function Navbar() {
             <img src={logo} alt="logo" width={140} height={40} />
           </a>
 
-          <div onClick={() => setOpen(!open)} className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden ">
+          <div
+            onClick={() => setOpen(!open)}
+            className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden "
+          >
             <ion-icon name={open ? "close" : "menu"}></ion-icon>
           </div>
 
@@ -35,22 +49,76 @@ function Navbar() {
               open ? "top-20 " : "top-[-490px]"
             }`}
           >
-            {navLinks.map((link) => (
-              <li key={link.label} className="md:ml-8 text-lg md:my-0 my-7">
-                <a className={`font-montserrat text-primary md:text-white hover:text-gray-400 ${activeNav === link.label ? "active" : ""}  `} href={link.to}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
+
+            {!isLandingPage  // jika halaman landing page, render navbar untuk landing page
+              ? navLoginLinks.map((link) => (
+                  <li key={link.label} className="md:ml-8 text-lg md:my-0 my-7">
+                    <a
+                      className={`font-montserrat text-white hover:text-gray-400 ${
+                        activeNav === link.label ? "active" : ""
+                      }  `}
+                      href={link.to}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))
+              : navLandingLinks.map((link) => (
+                  <li key={link.label} className="md:ml-8 text-lg md:my-0 my-7">
+                    <a
+                      className={`font-montserrat text-primary md:text-white hover:text-gray-400 ${
+                        activeNav === link.label ? "active" : ""
+                      }  `}
+                      href={link.to}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))
+                }
           </ul>
           <div className="flex gap-2 leading-normal font-montserrat max-lg:hidden wide:mr-24 items-center">
-            <a href="/register" className="font px-5 py-1 text-white  hover:text-primary">
-              Buat Akun
-            </a>
-            {/* <span>/</span> */}
-            <a href="/login" className="bg-primary px-8 py-2 rounded-lg font-medium text-white">
-              Masuk
-            </a>
+            {!isLandingPage ? (
+              <div
+                className="rounded-full overflow-hidden h-10 w-10 border-[1.5px] border-primary cursor-pointer"
+                onClick={handleAvatarClick}
+              >
+                <img
+                  src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+                {showLogoutBox && (
+                  <div className="absolute bg-white p-3 rounded-md shadow-md top-full right-0">
+                    <button
+                      className="px-3 py-1 rounded-md flex items-center gap-3 border border-primary hover:bg-primary hover:text-white duration-300"
+                      onClick={handleLogout}
+                    >
+                      <span className="font-semibold font-montserrat">
+                        Logout
+                      </span>
+                      <MdLogout />
+                    </button>
+                  </div>
+                )}
+                
+              </div>
+            ) : (
+              <div>
+                <a
+                  href="/register"
+                  className="font px-5 py-1 text-white  hover:text-primary"
+                >
+                  Buat Akun
+                </a>
+                <a
+                  href="/login"
+                  className="bg-primary px-8 py-2 rounded-lg font-medium text-white"
+                >
+                  Masuk
+                </a>
+              </div>
+            )}
           </div>
         </nav>
       </header>

@@ -1,15 +1,19 @@
-import React from "react";
-import Navbar from "../components/navbar";
+
 import Footer from "../sections/Footer";
 import { IoLocationSharp } from "react-icons/io5";
 import { TbMailFilled } from "react-icons/tb";
 import { IoCallSharp } from "react-icons/io5";
+import Navbar from "../components/Navbar";
 
 function TentangPage() {
+
+    // const handleAuth = () => {
+        
+    // }
   return (
     <>
       <Navbar />
-      <div className="flex mt-20 padding-x items-center gap-20 w-auto">
+      <div className="flex mt-20 padding-x items-center gap-20 w-auto ">
         <img src="https://attendify.id/assets/img/landingpage/tentangkami2.png" className="object-contain  h-screen p-12   " alt="" />
 
         <div className="tentang-isi">

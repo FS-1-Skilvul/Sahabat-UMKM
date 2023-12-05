@@ -2,9 +2,11 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useAuth } from "../contexts/AuthContext";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -21,8 +23,9 @@ const LoginPage = () => {
         const userRole = res.data.data.role;
         console.log("User Role:", userRole);
         // console.log('data :', token)
-        Cookies.set("token", res.data.token);
+        // Cookies.set("token", res.data.token);
         console.log("token", res.data.token);
+        // Cookies.set("userData", JSON.stringify(res.data.data));
         console.log("berhasil login");
         console.log("Navigating to admin/dashboard or user/dashboard...");
 
@@ -33,7 +36,8 @@ const LoginPage = () => {
         } else {
           // Regular user role
           console.log("User is a regular user");
-          navigate("/user-dashboard");
+          login(res.data.token, JSON.stringify(res.data.data)); // stored user login data to context
+          navigate("/user/dashboard");
         }
       })
       .catch((err) => {

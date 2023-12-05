@@ -1,60 +1,55 @@
 import { useEffect, useState } from "react";
 import KelasSayaCard from "../components/KelasSayaCard";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 export default function KelasSaya() {
-  const [activeFilter, setActiveFilter] = useState("semua");
+  const token = Cookies.get("token");
+  const userData = JSON.parse(Cookies.get("userData"));
+  const [transaksi, setTransaksi] = useState([]);
   const [kelas, setKelas] = useState([]);
   useEffect(() => {
-    fetch(`https://65280fcd931d71583df1d176.mockapi.io/course`)
+    fetch(`https://backend-production-4c5b.up.railway.app/transaksi/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
-        setKelas(data);
+        const dataTransaksi = data.data.filter(
+          (item) => item.id_user === userData.id
+        );
+        console.log(dataTransaksi);
+        setTransaksi(dataTransaksi);
       });
-  }, []);
+  }, [userData.id, token]);
 
-  const handleFilterClick = (filter) => {
-    setActiveFilter(filter);
-  };
+  useEffect(() => {
+    fetch(`https://backend-production-4c5b.up.railway.app/kelas/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const dataKelas = data.data.filter((item) =>
+          transaksi.some((trans) => trans.id_kelas === item.id)
+        );
+        console.log(dataKelas);
+        setKelas(dataKelas);
+      });
+  }, [transaksi, token]);
 
   return (
     <div className="px-10">
-      <div className="flex max-sm:items-center max-sm:flex-col gap-4">
-        <div
-          className={`px-5 py-1 rounded-3xl border ${
-            activeFilter == "semua" ? "border-gray-800" : "border-transparent"
-          }  w-fit cursor-pointer`}
-          onClick={() => handleFilterClick("semua")}
-        >
-          <span>Semua</span>
-        </div>
-        <div
-          className={`px-5 py-1 rounded-3xl border ${
-            activeFilter == "berlangsung"
-              ? "border-gray-800"
-              : "border-transparent"
-          }  w-fit cursor-pointer`}
-          onClick={() => handleFilterClick("berlangsung")}
-        >
-          <span>Sedang Berlangsung</span>
-        </div>
-        <div
-          className={`px-5 py-1 rounded-3xl border ${
-            activeFilter == "selesai" ? "border-gray-800" : "border-transparent"
-          }  w-fit cursor-pointer`}
-          onClick={() => handleFilterClick("selesai")}
-        >
-          <span>Diselesaikan</span>
-        </div>
-      </div>
       <div className="flex gap-10 flex-wrap justify-center mt-24">
         {kelas.map((item) => (
-          <Link to={`/kelas/${item.id}`}>
+          <Link to={`/user/kelas/${item.id}`}>
             <KelasSayaCard key={item.id} kelas={item} />
           </Link>
         ))}
       </div>
-      \
+      
     </div>
   );
 }

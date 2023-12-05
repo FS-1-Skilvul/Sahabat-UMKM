@@ -7,7 +7,7 @@ import Hero from "../sections/hero";
 import Footer from "../sections/Footer";
 import { category } from "../constants";
 const CariKelasPage = () => {
-  const  category  = useParams();
+  
 
   // const kelasKategori = category.filter(kelas => kelas.title === "Manajemen");
   return (
