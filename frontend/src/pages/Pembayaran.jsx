@@ -1,12 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Dana from "../assets/images/dana.png";
 import GoPay from "../assets/images/gopay.png";
 import Ovo from "../assets/images/ovo.png";
 import Modal from "../components/Modal";
+import { useParams } from "react-router-dom";
+import Cookies from "js-cookie";
 
 export default function Pembayaran() {
+  const token = Cookies.get("token");
+  const { id } = useParams();
+  const [kelas, setKelas] = useState({});
+  useEffect(() => {
+    fetch(`https://backend-production-4c5b.up.railway.app/kelas/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setKelas(data.data);
+      });
+  }, []);
+
   const [showModal, setShowModal] = useState(false);
   const [selectedMethod, setSelectedMethod] = useState(null);
+  const [paymentStatus, setPaymentStatus] = useState(null);
 
   const handlePaymentMethodChange = (method) => {
     setSelectedMethod(method);
@@ -16,8 +34,28 @@ export default function Pembayaran() {
     if (!selectedMethod) {
       alert("Pilih Metode Pembayaran!");
     } else {
-      console.log(selectedMethod);
-      setShowModal(true);
+      // console.log(selectedMethod);
+      // setPaymentStatus("inProgress");
+
+      // setShowModal(true);
+      // setTimeout(() => {
+      //   setShowModal(true);
+      // }, 2000);
+
+      fetch("https://backend-production-4c5b.up.railway.app/transaksi/", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id_kelas: kelas.id }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Transaction created:", data);
+          setPaymentStatus("success");
+          setShowModal(true);
+        });
     }
   };
   return (
@@ -26,10 +64,10 @@ export default function Pembayaran() {
         <h1 className="text-xl font-medium text-center mb-3">
           Detail Pembayaran
         </h1>
-        <p className="text-center text-xl mb-7">Manajemen Keuangan Bisnis</p>
+        <p className="text-center text-xl mb-7">{kelas.nama_kelas}</p>
         <div className="flex justify-between pb-2">
           <span>Harga Kelas</span>
-          <span>Rp60.000</span>
+          <span>Rp{kelas.harga}</span>
         </div>
         <div className="flex justify-between pb-4 border-b-2 border-white">
           <span>Diskon</span>
@@ -37,7 +75,7 @@ export default function Pembayaran() {
         </div>
         <div className="flex justify-between pt-4">
           <span>Total</span>
-          <span>Rp60.000</span>
+          <span>Rp{kelas.harga}</span>
         </div>
 
         <div className="mt-10">
@@ -81,7 +119,15 @@ export default function Pembayaran() {
           </div>
         </div>
       </div>
-      {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
+      {showModal && (
+        <Modal
+          id_kelas={kelas.id}
+          nama_kelas={kelas.nama_kelas}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          paymentStatus={paymentStatus}
+        />
+      )}
     </section>
   );
 }
