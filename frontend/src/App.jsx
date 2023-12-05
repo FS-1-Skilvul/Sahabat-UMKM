@@ -1,31 +1,43 @@
-import Navbar from "./components/navbar";
 import "./App.css";
-import { BrowserRouter as Route, Router, Routes } from "react-router-dom";
-import Hero from "./sections/hero";
-import Kategori from "./sections/Kategori";
-import CardClass from "./components/CardClass";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import Home from "./pages/Home";
+import AdminDashboard from "./pages/AdminDashboard";
+import TransaksiAdmin from "./pages/TransaksiAdmin";
+import FormAddClass from "./components/FormAddClass";
+import KategoriAdmin from "./pages/KategoriAdmin";
+import UserAdmin from "./pages/UserAdmin";
+import RegistrationPage from "./pages/RegistrationPage";
+import Login from "./pages/LoginPage";
+import TambahKategori from "./pages/TambahKategori";
+import EditKategori from "./pages/EditKategori";
+import EditDataKelas from "./pages/EditDataKelas";
+import TentangPage from "./pages/TentangPage";
+import User from "./RoutesUser";
+import CariKelas from "./components/CariKelas";
 import CariKelasPage from "./pages/CariKelasPage";
-import Footer from "./sections/Footer";
-import KelasPopuler from "./sections/kelasPopuler";
 
 function App() {
   return (
-    <>
-      {/* // <Router> */}
-      <Navbar />
-      <Hero />
-
-      <Kategori />
-      <KelasPopuler />
-      <Footer />
-      {/* <Routes>
-        <Route path="/" element={<Beranda />} />
-        <Route path="/CariKelasPage" element={<CariKelasPage />} />
-        </Routes>
-        </Router>
-      */}
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+     <Route path="/tentang" element={<TentangPage />} />
+      <Route path="/register" element={<RegistrationPage />} />
+      <Route path="/search" element={<CariKelasPage />} />
+      <Route path="/user/*" element={<User />} />
+      <Route path="/login" element={<Login />} />
+      
+      {/* Rute untuk admin */}
+      <Route path="/admin-dashboard" element={<AdminDashboard />} />
+      <Route path="/transaksi" element={<TransaksiAdmin />} />
+      <Route path="/datakelas" element={<AdminDashboard />} />
+      <Route path="/edit-kategori/:id" element={<EditKategori />} />
+      <Route path="/kategori" element={<KategoriAdmin />} />
+      <Route path="/tambah-kategori" element={<TambahKategori />} />
+      <Route path="/userAdmin" element={<UserAdmin />} />
+      <Route path="/dashboard/FormAddClass" element={<FormAddClass />} />
+      <Route path="/FormAddClass" element={<FormAddClass />} />
+      <Route path="/edit-kelas/:id" element={<EditDataKelas />} />
+    </Routes>
   );
 }
-
 export default App;
