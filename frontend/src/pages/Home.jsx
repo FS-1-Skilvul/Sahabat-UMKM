@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import Hero from "../sections/hero";
+import Hero from "../sections/Hero";
 import Kategori from "../sections/Kategori";
 import KelasPopuler from "../sections/kelasPopuler";
 import Footer from "../sections/Footer";
