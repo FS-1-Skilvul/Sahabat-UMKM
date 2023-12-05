@@ -2,10 +2,14 @@ import logo from "../assets/images/logo.png";
 import { navLandingLinks, navLoginLinks } from "../constants";
 import { useState } from "react";
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { MdLogout } from "react-icons/md";
+import { useAuth } from "../contexts/AuthContext";
 
 function Navbar() {
+  const { logout } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
   const isLandingPage = location.pathname === "/"; // cek apakah membuka halaman landingpage
 
   const handleClick = (event) => {
@@ -14,8 +18,21 @@ function Navbar() {
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   };
   const [activeNav, setActiveNav] = useState("Beranda");
-
   let [open, setOpen] = useState(false);
+
+  // logout box
+  const [showLogoutBox, setShowLogoutBox] = useState(false);
+
+  const handleAvatarClick = () => {
+    setShowLogoutBox(!showLogoutBox);
+  };
+
+  const handleLogout = () => {
+    console.log("Logging out...");
+    logout();
+    console.log("Logged out");
+    navigate("/login");
+  };
   return (
     <>
       <header className="fixed top-0 left-0  w-full shadow-md z-50">
@@ -64,12 +81,29 @@ function Navbar() {
           </ul>
           <div className="flex gap-2 leading-normal font-montserrat max-lg:hidden wide:mr-24 items-center">
             {!isLandingPage ? (
-              <div className="rounded-full overflow-hidden h-10 w-10 border-[1.5px] border-primary cursor-pointer">
+              <div
+                className="rounded-full overflow-hidden h-10 w-10 border-[1.5px] border-primary cursor-pointer"
+                onClick={handleAvatarClick}
+              >
                 <img
                   src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
                   alt=""
                   className="w-full h-full object-cover"
                 />
+                {showLogoutBox && (
+                  <div className="absolute bg-white p-3 rounded-md shadow-md top-full right-0">
+                    <button
+                      className="px-3 py-1 rounded-md flex items-center gap-3 border border-primary hover:bg-primary hover:text-white duration-300"
+                      onClick={handleLogout}
+                    >
+                      <span className="font-semibold font-montserrat">
+                        Logout
+                      </span>
+                      <MdLogout />
+                    </button>
+                  </div>
+                )}
+                // show logout box when avatar clicked
               </div>
             ) : (
               <div>

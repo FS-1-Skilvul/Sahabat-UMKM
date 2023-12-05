@@ -2,9 +2,14 @@ import React, { useState, useEffect } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import CardFilter from "./CardFilter";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const CariKelas = () => {
+  const navigate = useNavigate();
   const token = Cookies.get("token");
+  if (!token) {
+    navigate("/login");
+  }
   const [filterCourses, setFilterCourses] = useState([]);
   const [input, setInput] = useState("");
   const [courses, setCourses] = useState([]);

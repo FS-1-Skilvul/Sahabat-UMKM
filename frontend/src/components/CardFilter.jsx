@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 function CardFilter({ course }) {
+  const userData = JSON.parse(Cookies.get("userData"));
+  const token = Cookies.get("token");
+  const [hasBought, setHasBought] = useState(false);
+
+  useEffect(() => {
+    const checkUserHasBought = async () => {
+      const response = await fetch(
+        `https://backend-production-4c5b.up.railway.app/transaksi/`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = await response.json();
+
+      const boughtClass = data.data.filter(
+        (item) => item.id_kelas === course.id && item.id_user === userData.id // cek apakah kelas telah dibeli
+      );
+      setHasBought(boughtClass.length > 0); // hasBought set to true jika kelas telah dibeli
+    };
+
+    if (token) {
+      checkUserHasBought(); // jalankan checkUserHasBought ketika token ada (user login)
+    }
+  }, [course.id, token]);
+
   let { id, nama_kelas, id_kategori, harga, gambar } = course;
   return (
     <div className="flex flex-col justify-center p-5 mt-7 outline outline-gray-100 cursor-pointer  transition ease-in-out duration-300 hover:translate-y-[-10px] rounded-md shadow-md">
@@ -27,12 +55,17 @@ function CardFilter({ course }) {
           <p className="font-monserrat  text-md font-semibold text-black  ">
             {`Rp${harga}`}
           </p>
-          <Link to={`${id}`}>
-            <p className="py-1 px-3 cursor-pointer rounded-md font-monserrat  text-sm  bg-secondary text-white">
-              {" "}
-              Ikuti Kelas
+          {hasBought ? (
+            <p className="py-1 px-3 cursor-pointer rounded-md font-monserrat  text-sm border border-primary bg-white text-primary">
+              Telah Diikuti
             </p>
-          </Link>
+          ) : (
+            <Link to={`${id}`}>
+              <p className="py-1 px-3 cursor-pointer rounded-md font-monserrat  text-sm  bg-secondary text-white">
+                Ikuti Kelas
+              </p>
+            </Link>
+          )}
         </div>
       </div>
     </div>
