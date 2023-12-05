@@ -6,22 +6,26 @@ import TransaksiAdmin from "./pages/TransaksiAdmin";
 import FormAddClass from "./components/FormAddClass";
 import KategoriAdmin from "./pages/KategoriAdmin";
 import UserAdmin from "./pages/UserAdmin";
-import DashboardUser from "./pages/DashboardUser";
 import RegistrationPage from "./pages/RegistrationPage";
 import Login from "./pages/LoginPage";
 import TambahKategori from "./pages/TambahKategori";
 import EditKategori from "./pages/EditKategori";
 import EditDataKelas from "./pages/EditDataKelas";
-import Navbar from "./components/navbar";
+import TentangPage from "./pages/TentangPage";
 import User from "./RoutesUser";
+import CariKelas from "./components/CariKelas";
+import CariKelasPage from "./pages/CariKelasPage";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/user/*" element={<User />} /> // nesting route
+     <Route path="/tentang" element={<TentangPage />} />
       <Route path="/register" element={<RegistrationPage />} />
+      <Route path="/search" element={<CariKelasPage />} />
+      <Route path="/user/*" element={<User />} />
       <Route path="/login" element={<Login />} />
+      
       {/* Rute untuk admin */}
       <Route path="/admin-dashboard" element={<AdminDashboard />} />
       <Route path="/transaksi" element={<TransaksiAdmin />} />

@@ -19,7 +19,7 @@ function FormAddClass() {
 
   const saveData = async (e) => {
     e.preventDefault();
-    if (!idKategori.trim() || !namaKelas.trim() || !deskripsiKelas.trim() || !hargaKelas.trim() || !gambarKelas.trim() || !videoKelas.trim() || !pengajarKelas.trim() || !detailPengajar.trim() || !durasi.trim() || !rating.trim()) {
+    if (!idKategori || idKategori === null || idKategori === undefined  || !namaKelas.trim() || !deskripsiKelas.trim() || !hargaKelas.trim() || !gambarKelas.trim() || !videoKelas.trim() || !pengajarKelas.trim() || !detailPengajar.trim() || !durasi.trim() || !rating.trim()) {
       console.error("All fields are required");
       return;
     }
@@ -49,120 +49,206 @@ function FormAddClass() {
       console.error("Error saving data:", error);
     }
   };
+  const kategoriOptions = [
+    { value: 1, label: "1. Keuangan" },
+    { value: 2, label: "2. Manajemen" },
+    { value: 3, label: "3. Kewirausahaan" },
+    { value: 4, label: "4. Pengembangan Diri" },
+    { value: 5, label: "5. Desain Produk" },
+  ];
 
   return (
     <Layout>
       <div className="padding-x">
-        <div className="flex flex-col w-1/2">
-          <h1 className="font-bold mb-5 text-3xl text-primary">Tambah Data Kelas</h1>
+        <div className="flex flex-col">
+          <h1 className="font-bold text-center  text-3xl text-primary">Tambah Data Kelas</h1>
 
           <form action="" onSubmit={saveData} className="flex flex-col gap-6">
-            <label htmlFor="">Nama Kelas</label>
-            <input type="text" name="username" value={namaKelas} onChange={(e) => setNamaKelas(e.target.value)} className="border border-gray-500 rounded-lg p-2" />
-            <label htmlFor="">Id Kategori</label>
-            <input type="text" name="idKategori" value={idKategori} onChange={(e) => setIdKategori(e.target.value)} className="border border-gray-500 rounded-lg p-2" />
+            <div className="w-full px-4 sm:px-6 lg:px-8  mx-auto">
+              <div className="mx-auto max-w-2xl">
+                <div className="text-center"></div>
 
-            {/* <button
-              id="dropdownRadioBgHoverButton"
-              data-dropdown-toggle="dropdownRadioBgHover"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              type="button"
-            >
-              Dropdown radio
-              <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-              </svg>
-            </button>
-            
-            <div id="dropdownRadioBgHover" className="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
-              <ul className="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownRadioBgHoverButton">
-                <li>
-                  <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                <div className="mt-5 p-4 relative z-10 bg-white border rounded-xl sm:mt-10 md:p-10 dark:bg-primary dark:border-gray-700">
+                  <div className="mb-4 sm:mb-8">
+                    <label htmlFor="hs-feedback-post-comment-name-1" className="block mb-2 text-sm font-medium dark:text-white">
+                      Nama Kelas
+                    </label>
                     <input
-                      id="default-radio-4"
-                      type="radio"
-                      value=""
-                      name="default-radio"
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      type="text"
+                      name="username"
+                      value={namaKelas}
+                      onChange={(e) => setNamaKelas(e.target.value)}
+                      id="hs-feedback-post-comment-name-1"
+                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-gray-700 dark:text-black dark:focus:ring-black-600"
+                      placeholder=""
                     ></input>
-                    <label htmlFor="default-radio-4" className="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">
-                      Default radio
-                    </label>
                   </div>
-                </li>
-                <li>
-                  <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+
+                  <div className="hs-dropdown relative inline-flex mb-4 sm:mb-8">
+                    <button
+                      id="hs-dropdown-default"
+                      type="button"
+                      className="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-white-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-white-700 dark:text-primary  dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-white-600"
+                    >
+                      {kategoriOptions.find((option) => option.value === idKategori)?.label || "Pilih Kategori"}
+                      <svg
+                        className="hs-dropdown-open:rotate-180 w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        >
+                        <path d="m6 9 6 6 6-6" />
+                      </svg>
+
+                    </button>
+                    <div
+                      className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[15rem] bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
+                      aria-labelledby="hs-dropdown-default"
+                    >
+                      {kategoriOptions.map((option) => (
+                        <a
+                          key={option.value}
+                          value={idKategori}
+                          // onChange={(e) => setIdKategori(e.target.value)} 
+                          onClick={() => setIdKategori(option.value)}
+                          className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700"
+                          href="#"
+                        >
+                          {option.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mb-4 sm:mb-8">
+                    <label htmlFor="hs-feedback-post-comment-textarea-1 " className="block mb-2 text-sm font-medium dark:text-white">
+                      Deskripsi
+                    </label>
+                    <div className="mt-1">
+                      <textarea
+                        id="hs-feedback-post-comment-textarea-1"
+                        name="hs-feedback-post-comment-textarea-1"
+                        value={deskripsiKelas}
+                        onChange={(e) => setDeskripsiKelas(e.target.value)}
+                        rows="3"
+                        className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-gray-700 dark:text-black dark:focus:ring-gray-600"
+                        placeholder="Deskripsi.."
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div className="mb-4 sm:mb-8">
+                    <label htmlFor="hs-feedback-post-comment-email-1" className="block mb-2 text-sm font-medium dark:text-white">
+                      Harga
+                    </label>
                     <input
-                      checked
-                      id="default-radio-5"
-                      type="radio"
-                      value=""
-                      name="default-radio"
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      type="text"
+                      id="hs-feedback-post-comment-email-1"
+                      value={hargaKelas}
+                      onChange={(e) => setHargaKelas(e.target.value)}
+                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-gray-700 dark:text-black dark:focus:ring-gray-600"
+                      placeholder=""
                     ></input>
-                    <label htmlFor="default-radio-5" className="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">
-                      Checked state
-                    </label>
                   </div>
-                </li>
-                <li>
-                  <div className="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <div className="mb-4 sm:mb-8">
+                    <label htmlFor="hs-feedback-post-comment-email-1" className="block mb-2 text-sm font-medium dark:text-white">
+                      Gambar
+                    </label>
                     <input
-                      checked
-                      id="default-radio-6"
-                      type="radio"
-                      value=""
-                      name="default-radio"
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    ></input> */}
-
-                    {/* <label htmlFor="default-radio-6" className="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">
-                      Default radio
-                    </label>
+                      type="text"
+                      id="hs-feedback-post-comment-email-1"
+                      value={gambarKelas}
+                      onChange={(e) => setGambarKelas(e.target.value)}
+                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-gray-700 dark:text-black dark:focus:ring-gray-600"
+                      placeholder=""
+                    ></input>
                   </div>
-                </li>
-              </ul>
-            </div> */}
+                  <div className="mb-4 sm:mb-8">
+                    <label htmlFor="hs-feedback-post-comment-email-1" className="block mb-2 text-sm font-medium dark:text-white">
+                      Video
+                    </label>
+                    <input
+                      type="text"
+                      id="hs-feedback-post-comment-email-1"
+                      value={videoKelas}
+                      onChange={(e) => setVideoKelas(e.target.value)}
+                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-gray-700 dark:text-black dark:focus:ring-gray-600"
+                      placeholder=""
+                    ></input>
+                  </div>
+                  <div className="mb-4 sm:mb-8">
+                    <label htmlFor="hs-feedback-post-comment-email-1" className="block mb-2 text-sm font-medium dark:text-white">
+                      Nama Pengajar
+                    </label>
+                    <input
+                      type="text"
+                      value={pengajarKelas}
+                      onChange={(e) => setPengajarKelas(e.target.value)}
+                      id="hs-feedback-post-comment-email-1"
+                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-gray-700 dark:text-black dark:focus:ring-gray-600"
+                      placeholder=""
+                    ></input>
+                  </div>
+                  <div className="mb-4 sm:mb-8">
+                    <label htmlFor="hs-feedback-post-comment-email-1" className="block mb-2 text-sm font-medium dark:text-white">
+                      Detail Pengajar
+                    </label>
+                    <textarea
+                        id="hs-feedback-post-comment-textarea-1"
+                        name="hs-feedback-post-comment-textarea-1"
+                        value={detailPengajar}
+                        onChange={(e) => setDetailPengajar(e.target.value)}
+                        rows="3"
+                        className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-gray-700 dark:text-black dark:focus:ring-gray-600"
+                        placeholder=""
+                      ></textarea>
+                  </div>
+                  <div className="mb-4 sm:mb-8">
+                    <label htmlFor="hs-feedback-post-comment-email-1" className="block mb-2 text-sm font-medium dark:text-white">
+                      Durasi
+                    </label>
+                    <input
+                      type="text"
+                      id="hs-feedback-post-comment-email-1"
+                      value={durasi}
+                      onChange={(e) => setDurasi(e.target.value)}
+                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-gray-700 dark:text-black dark:focus:ring-gray-600"
+                      placeholder=""
+                    ></input>
+                  </div>
+                  <div className="mb-4 sm:mb-8">
+                    <label htmlFor="hs-feedback-post-comment-email-1" className="block mb-2 text-sm font-medium dark:text-white">
+                      Rating
+                    </label>
+                    <input
+                      type="text"
+                      value={rating}
+                      onChange={(e) => setRating(e.target.value)}
+                      id="hs-feedback-post-comment-email-1"
+                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-gray-700 dark:text-black dark:focus:ring-gray-600"
+                      placeholder=""
+                    ></input>
+                  </div>
 
-            <label htmlFor="" className="font-semibold">
-              Deskripsi Kelas
-            </label>
-            <textarea type="text" name="deskripsi" value={deskripsiKelas} onChange={(e) => setDeskripsiKelas(e.target.value)} className="border border-gray-500 rounded-lg p-2" />
-
-            <label htmlFor="" className="nama-kelas">
-              Harga
-            </label>
-            <input type="text" name="harga" value={hargaKelas} onChange={(e) => setHargaKelas(e.target.value)} className="border border-gray-500 rounded-lg p-2" />
-
-            <label htmlFor="" className="nama-kelas">
-              Gambar
-            </label>
-            <input type="text" name="gambar" value={gambarKelas} onChange={(e) => setGambarKelas(e.target.value)} className="border border-gray-500 rounded-lg p-2" />
-
-            <label htmlFor="" className="nama-kelas">
-              Video
-            </label>
-            <input type="text" name="video" value={videoKelas} onChange={(e) => setVideoKelas(e.target.value)} className="border border-gray-500 rounded-lg p-2" />
-            <label htmlFor="" className="nama-kelas">
-              Nama Pengajar
-            </label>
-            <input type="text" name="pengajar" value={pengajarKelas} onChange={(e) => setPengajarKelas(e.target.value)} className="border border-gray-500 rounded-lg p-2" />
-            <label htmlFor="" className="nama-kelas">
-              Detail Pengajar
-            </label>
-            <input type="text" name="detail_pengajar" value={detailPengajar} onChange={(e) => setDetailPengajar(e.target.value)} className="border border-gray-500 rounded-lg p-2" />
-            <label htmlFor="" className="nama-kelas">
-              Durasi
-            </label>
-            <input type="text" name="durasi" value={durasi} onChange={(e) => setDurasi(e.target.value)} className="border border-gray-500 rounded-lg p-2" />
-            <label htmlFor="" className="nama-kelas">
-              Rating
-            </label>
-            <input type="text" name="rating" value={rating} onChange={(e) => setRating(e.target.value)} className="border border-gray-500 rounded-lg p-2" />
-            <button type="submit" className="bg-green-800 hover:bg-green-700 w-[100px] p-2 text-white font-semibold rounded-lg  mt-5">
-              Save
-            </button>
+                  <div className="mt-6 grid">
+                    <button
+                      type="submit"
+                      className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </form>
+
+          {/* <input type="text" name="idKategori" value={idKategori} onChange={(e) => setIdKategori(e.target.value)} className="border border-gray-500 rounded-lg p-2" /> */}
         </div>
       </div>
     </Layout>

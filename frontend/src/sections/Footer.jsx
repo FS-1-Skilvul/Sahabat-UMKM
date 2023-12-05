@@ -4,8 +4,10 @@ import { FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-        <div className="main-footer py-10 px-5 flex justify-between  bg-secondary mt-20  text-white">
-          <div className="flex flex-col gap-4    ">
+    <div className="flex md:flex-col">
+      
+        <div className="main-footer py-10 px-5 flex justify-between  bg-secondary mt-20   text-white">
+          <div className="flex flex-col gap-4 md:flex-col  ">
             <img src={Logo} className="w-40" alt="" />
             <p className="font-poppins text-sm leading-6">
               Kami percaya bahwa pertumbuhan UMKM adalah kunci untuk <br /> menggerakkan ekonomi lokal dan menciptakan lapangan kerja.
@@ -48,6 +50,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+    </div>
     </>
   );
 };

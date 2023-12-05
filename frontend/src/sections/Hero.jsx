@@ -1,11 +1,13 @@
 import Button from "../components/Button";
+import 'animate.css/animate.css';
+
 import HeroImage from "../assets/images/hero-image.jpg";
 import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <section>
       <div className="flex flex-wrap padding-y items-center  padding-x ">
-        <div className="w-full xl:w-1/2 content-center py-10">
+        <div className="w-full xl:w-1/2 content-center py-10 animate-fade-right animate__animated animate__slideInLeft ">
           <h1 className="py-5 max-sm:py-5 font-poppins text-5xl font-semibold leading-[84px]">
             <span className="text-primary">Panduan Bisnis Terbaik Bagi</span>
             {/* <br /> */}
@@ -19,7 +21,7 @@ const Hero = () => {
             <Button label="Mulai Sekarang" />
           </Link>
         </div>
-        <div className="w-full xl:w-1/2 content-center shadow-2xl ">
+        <div className="w-full xl:w-1/2 content-center shadow-2xl animate-fade-left animate__animated animate__slideInRight">
           <img
             src={HeroImage}
             alt="hero"

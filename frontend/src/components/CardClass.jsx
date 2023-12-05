@@ -2,18 +2,22 @@ import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 
 function CardClass() {
-  const token = Cookies.get("token");
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    fetch("https://backend-production-4c5b.up.railway.app/kelas", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    fetch("https://65280fcd931d71583df1d176.mockapi.io/course")
       .then((response) => response.json())
-      .then((data) => setCourses(data.data));
+      
+      .then((data) => setCourses(data));
+      // headers: {
+      //   Authorization: `Bearer ${token}`,
+      // },
+    
   }, []);
+
+  const handleClick = () => {
+    
+  }
 
   return (
     <>
@@ -45,9 +49,11 @@ function CardClass() {
                         {" "}
                         {course.price}
                       </p>
-                      <p className="py-1 px-3 cursor-pointer rounded-md font-monserrat  text-sm  bg-secondary text-white ">
+                      <p className="py-1 px-3 cursor-pointer rounded-md font-monserrat  text-sm  bg-secondary text-white " onClick={handleClick} ><a href="/register">
+
                         {" "}
                         Ikuti Kelas
+                      </a>
                       </p>
                     </div>
                   </div>

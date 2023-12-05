@@ -14,7 +14,7 @@ function Home() {
       <Hero />
       <Tentang />
       <Kategori />
-      <KelasPopuler />
+     <KelasPopuler />
       <Footer />
     </div>
   );

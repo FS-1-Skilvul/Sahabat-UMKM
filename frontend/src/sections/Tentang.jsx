@@ -3,7 +3,9 @@ import aboutimage2 from "../assets/images/candidate_1283936.png";
 import aboutimage3 from "../assets/images/about3.png";
 function Tentang() {
   return (
-    <div className="padding-x " id="tentang-section">
+
+    
+    <div className="padding-x " id="tentang-section animate-fade-down animate-once animate-delay-200">
       <h1 className="font-poppins text-3xl text-primary font-bold  text-center">Mengapa Sahabat UMKM?</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-3  items-center justify-items-center gap-16 mt-10 ">

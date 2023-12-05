@@ -11,12 +11,8 @@ function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const isLandingPage = location.pathname === "/"; // cek apakah membuka halaman landingpage
+const isTentangPage = location.pathname === "/tentang";
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    const id = event.target.getAttribute("href");
-    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-  };
   const [activeNav, setActiveNav] = useState("Beranda");
   let [open, setOpen] = useState(false);
 
@@ -53,7 +49,8 @@ function Navbar() {
               open ? "top-20 " : "top-[-490px]"
             }`}
           >
-            {!isLandingPage // jika halaman landing page, render navbar untuk landing page
+
+            {!isLandingPage  // jika halaman landing page, render navbar untuk landing page
               ? navLoginLinks.map((link) => (
                   <li key={link.label} className="md:ml-8 text-lg md:my-0 my-7">
                     <a
@@ -69,7 +66,7 @@ function Navbar() {
               : navLandingLinks.map((link) => (
                   <li key={link.label} className="md:ml-8 text-lg md:my-0 my-7">
                     <a
-                      className={`font-montserrat text-white hover:text-gray-400 ${
+                      className={`font-montserrat text-primary md:text-white hover:text-gray-400 ${
                         activeNav === link.label ? "active" : ""
                       }  `}
                       href={link.to}
@@ -77,7 +74,8 @@ function Navbar() {
                       {link.label}
                     </a>
                   </li>
-                ))}
+                ))
+                }
           </ul>
           <div className="flex gap-2 leading-normal font-montserrat max-lg:hidden wide:mr-24 items-center">
             {!isLandingPage ? (
@@ -103,7 +101,7 @@ function Navbar() {
                     </button>
                   </div>
                 )}
-                // show logout box when avatar clicked
+                
               </div>
             ) : (
               <div>
@@ -126,6 +124,6 @@ function Navbar() {
       </header>
     </>
   );
-}
-// }
+            }
+
 export default Navbar;

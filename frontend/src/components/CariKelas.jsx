@@ -46,7 +46,7 @@ const CariKelas = () => {
 
   return (
     <>
-      <div className="padding-x padding-y">
+      <div className="padding-x padding-y ">
         <div className="flex justify-center list-none gap-4 font-montserrat font-semibold pt-5">
           <h1 className="font-poppins text-3xl text-primary font-bold">
             Eksplor Kelas

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../App.css";
 import Layout from "./Layout";
@@ -9,7 +9,7 @@ import { FaSignOutAlt } from "react-icons/fa";
 function AdminDashboard() {
   const [courses, setCourses] = useState([]);
   const token = Cookies.get("token");
-
+  const navigate = useNavigate();
   const fetchData = async () => {
     try {
       const response = await axios.get("https://backend-production-4c5b.up.railway.app/kelas", {
@@ -22,6 +22,8 @@ function AdminDashboard() {
       console.log("Error fetching data:", error);
     }
   };
+
+ 
 
   useEffect(() => {
     fetchData();
@@ -39,13 +41,9 @@ function AdminDashboard() {
   return (
     <>
       <Layout>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between ">
 
-        <h1 className="flex justify-left font-bold text-2xl font-montserrat  text-primary">Data Kelas</h1>
-       <a href="">
-        <FaSignOutAlt size={30} className="text-gray-700 cursor-pointer"/>
-
-       </a>
+        <h1 className="font-bold text-2xl font-montserrat  text-primary">Data Kelas</h1>
         </div>
         <div className="flex flex-col mt-5 max-h-screen">
           <Link to="/dashboard/FormAddClass" className="button is-primary mb-4 text-sm font-semibold font-montserrat w-32  text-center text-white p-3 rounded-lg bg-primary">

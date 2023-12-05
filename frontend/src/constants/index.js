@@ -9,8 +9,7 @@ import Desain from "../assets/icons/desain.png";
 export const navLandingLinks = [
   { to: "/", label: "Beranda" },
   { to: "/user/search", label: "Cari Kelas " },
-  // { to: "/AdminDashboard", label: "Mentor" },
-  { to: "#tentang-section", label: "Tentang" },
+  { to: "/tentang", label: "Tentang" },
 ];
 
 export const navLoginLinks = [
@@ -18,14 +17,6 @@ export const navLoginLinks = [
   { to: "/user/search", label: "Cari Kelas" },
   { to: "/user/myclass", label: "Kelas Saya" },
 ];
-// {
-// landing:
-// login: [
-//   { to: "/", label: "Dashboard" },
-//   { to: "/myclass", label: "Kelas Saya" },
-//   { to: "/search", label: "Cari Kelas" },
-// ],
-// };
 
 export const category = [
   {
@@ -75,5 +66,4 @@ export const category = [
 export const sidebar = [
   { title: "Dashboard", to: "/admin" },
   { title: "Inbox", to: "/transaksi" },
-  // {title: "Dashboard" ,to:"/admin"}
 ];

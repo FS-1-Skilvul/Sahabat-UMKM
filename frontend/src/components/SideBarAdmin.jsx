@@ -1,11 +1,14 @@
 import { useState } from "react";
-import {  Link  } from "react-router-dom";
-
+import {  Link,useNavigate  } from "react-router-dom";
+import { FaSignOutAlt } from "react-icons/fa";
 // import { useDispatch, useSelector } from "react-redux";
-
+import Cookies from "js-cookie";
+import axios from "axios";
 function SideBarAdmin() {
   const [activeMenu, setActiveMenu] = useState();
   const [open, setOpen] = useState();
+  const token = Cookies.get("token");
+  const navigate = useNavigate();
   // const dispatch = useDispatch();
   // const navigate = useNavigate();
   // const { user } = useSelector((state) => state.auth);
@@ -32,6 +35,20 @@ function SideBarAdmin() {
    console.log("menu", menu);
   };
 
+  const logout = async()=>{
+    try{
+      const response = await axios.get("https://backend-production-4c5b.up.railway.app/logout", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      console.log(response)
+      Cookies.remove("token");
+      navigate("/login")
+    }catch(error){
+      console.log("Error fetching data:", error);
+    }
+  }
   return (
     <div>
       <div className="flex items-center">
@@ -59,10 +76,12 @@ function SideBarAdmin() {
                   <img src={`../src/assets/${Menu.src}.png`} className="w-8" />
                 </button>
                 <span className={`${!open && "hidden"} origin-left duration-200 font-semibold text-lg text-center`}>{Menu.title}</span>
+
               </Link>
               </li>
             ))}
           </ul>
+            <FaSignOutAlt size={30} className="text-gray-400 flex mt-5 mx-2  rounded-md text-center cursor-pointer hover:bg-light-white  text-sm  gap-x-2 " onClick={logout}/>
           {/* <button onClick={logout} className="button is-white">
               <IoLogOut /> Logout
             </button> */}
