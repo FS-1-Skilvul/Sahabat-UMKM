@@ -92,9 +92,7 @@ function SideBarAdmin() {
    
            
           <main>{}</main>
-          {/* {activeMenu === "Dashboard" && <AdminDashboard/>}
-          {activeMenu === "Transaksi" && <TransaksiAdmin />} 
-           {activeMenu === 'Transaksi' && <TransaksiAdmin />} */}
+       
         </div>
       </div>
     </div>

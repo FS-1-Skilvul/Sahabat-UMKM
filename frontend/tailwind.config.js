@@ -52,6 +52,6 @@ export default {
     },
   },
   plugins: [
-   animated,
-   preline],
+    require('preline/plugin'),
+    require('tailwindcss-animated')]
 };

@@ -58,12 +58,13 @@ const RegistrationPage = (req, res) => {
               Atasi masalah untuk setiap  <span className="text-blue-600 dark:text-secondary">umkm</span>
             </h1>
             <p className="mt-3 text-base leading-6 text-gray-500"> Bergabunglah dengan kami untuk memperdalam pengetahuan bisnis umkm anda!</p>
+           
             {/* <!-- End Title --> */}
 
 
          
             {/* <!-- Form --> */}
-            <form className="mt-7" onSubmit={handleSubmit}>
+            <form className="" onSubmit={handleSubmit}>
               <div className="mb-4 mt-4">
                 <label htmlFor="hs-hero-name-2 nama" className="block text-sm font-medium dark:text-white">
                   <span className="sr-only">Nama Lengkap</span>
@@ -114,6 +115,12 @@ const RegistrationPage = (req, res) => {
                   placeholder="Konfirmasi Password"
                 />
               </div>
+              <p className=" m-2 text-sm text-gray-900 font-poppins">
+                    Sudah punya akun?{" "}
+                    <a className="text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/login">
+                    Masuk{" "}
+                    </a>
+                  </p>
               {msg && <p className="text-red-600 text-sm font-semibold font-poppins text-center mb-2">{msg}</p>}
               <div className="grid">
                 <button

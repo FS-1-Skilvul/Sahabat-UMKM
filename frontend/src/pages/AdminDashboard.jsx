@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import "../App.css";
 import Layout from "./Layout";
 import Cookies from "js-cookie";
-import { IoIosLogOut } from "react-icons/io";
+
 import axios from "axios";
-import { FaSignOutAlt } from "react-icons/fa";
+
 function AdminDashboard() {
   const [courses, setCourses] = useState([]);
   const token = Cookies.get("token");
