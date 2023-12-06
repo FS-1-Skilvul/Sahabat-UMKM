@@ -16,6 +16,7 @@ function FormAddClass() {
   const [detailPengajar, setDetailPengajar] = useState("");
   const [durasi, setDurasi] = useState("");
   const [rating, setRating] = useState("");
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleButtonClick = () => {
@@ -106,54 +107,28 @@ function FormAddClass() {
                     ></input>
                   </div>
 
-                  <div className="hs-dropdown relative inline-flex mb-4 sm:mb-8">
-                    <button
-                      id="hs-dropdown-default"
-                      onClick={handleButtonClick}
-                      type="button"
-                      className="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-white-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-white-700 dark:text-primary  dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-white-600"
-                    >
-                      {kategoriOptions.find((option) => option.value === idKategori)?.label || "Pilih Kategori"}
-
-                      <svg
-                        className="hs-dropdown-open:rotate-180 w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                  <div className="mb-4 sm:mb-8">
+                    <label htmlFor="dropdownInput" className="block mb-2 text-sm font-medium dark:text-white">
+                      Id kategori
+                    </label>
+                    <div className="relative inline-block w-full">
+                      <button
+                        id="dropdownInput"
+                        type="button"
+                        onClick={handleButtonClick}
+                        className="py-3 px-4 w-40 border-gray-200 rounded-lg text-sm bg-white focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-gray-700 dark:text-black dark:focus:ring-black-600"
                       >
-                        <path d="m6 9 6 6 6-6" />
-                      </svg>
-                    </button>
-                    {/* <div
-                      className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[15rem] bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
-                      aria-labelledby="hs-dropdown-default"
-                    > */}
-
-                    <div
-                      className={`hs-dropdown-menu transition-[opacity,margin] duration ${
-                        dropdownOpen ? "opacity-100" : "opacity-0"
-                      } hidden min-w-[15rem] bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full`}
-                      aria-labelledby="hs-dropdown-default"
-                    >
-                      {kategoriOptions.map((option) => (
-                        <a
-                          key={option.value}
-                          // value={idKategori}
-                          onClick={() => handleOptionClick(option.value)}
-                          // onClick={() => handleClick(option.value)},
-
-                          className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700"
-                          href="#"
-                        >
-                          {option.label}
-                        </a>
-                      ))}
+                        {kategoriOptions.find((option) => option.value === idKategori)?.label || "Pilih Kategori"}
+                      </button>
+                      <div className={`absolute p-auto w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none ${dropdownOpen ? "block" : "hidden"}`}>
+                        <div className="px-auto">
+                          {kategoriOptions.map((option) => (
+                            <button key={option.value} onClick={() => handleOptionClick(option.value)} className=" w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                              {option.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -269,7 +244,7 @@ function FormAddClass() {
                   <div className="mt-6 grid">
                     <button
                       type="submit"
-                      className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                      className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700  disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                     >
                       Submit
                     </button>
@@ -278,8 +253,6 @@ function FormAddClass() {
               </div>
             </div>
           </form>
-
-          {/* <input type="text" name="idKategori" value={idKategori} onChange={(e) => setIdKategori(e.target.value)} className="border border-gray-500 rounded-lg p-2" /> */}
         </div>
       </div>
     </Layout>
