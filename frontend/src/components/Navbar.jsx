@@ -13,7 +13,7 @@ function Navbar() {
   const isLandingPage = location.pathname === "/"; // cek apakah membuka halaman landingpage
 
 
-  const [activeNav, setActiveNav] = useState("Beranda");
+  const [activeNav] = useState("Beranda");
   let [open, setOpen] = useState(false);
 
   // logout box
