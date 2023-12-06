@@ -73,7 +73,7 @@ function SideBarAdmin() {
                 >
                 <Link to={Menu.to} onClick={() => setActiveMenu(Menu.to)} className="flex items-center gap-3 mt-4"> 
                 <button>
-                  <img src={`../src/assets/${Menu.src}.png`} className="w-8" />
+                  <img src={`../src/assets/${Menu.src}.png`} className="w-8"  />
                 </button>
                 <span className={`${!open && "hidden"} origin-left duration-200 font-semibold text-lg text-center`}>{Menu.title}</span>
 
