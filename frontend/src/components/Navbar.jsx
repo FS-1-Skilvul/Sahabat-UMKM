@@ -1,4 +1,4 @@
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/Logo.png";
 import { navLandingLinks, navLoginLinks } from "../constants";
 import { useState } from "react";
 
