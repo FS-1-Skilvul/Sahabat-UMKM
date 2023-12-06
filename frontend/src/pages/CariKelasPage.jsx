@@ -1,11 +1,10 @@
-import React from "react";
-import { useParams } from 'react-router-dom';
-import Navbar from "../components/navbar";
+
+
 import CariKelas from "../components/CariKelas";
-import Kategori from "../sections/Kategori";
-import Hero from "../sections/hero";
+
 import Footer from "../sections/Footer";
-import { category } from "../constants";
+
+import Navbar from "../components/Navbar";
 const CariKelasPage = () => {
   
 
