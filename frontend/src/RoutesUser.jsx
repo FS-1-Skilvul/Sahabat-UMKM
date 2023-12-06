@@ -6,7 +6,8 @@ import DashboardUser from "./pages/DashboardUser";
 import Pembayaran from "./pages/Pembayaran";
 import HalamanKelas from "./pages/HalamanKelas";
 import KelasSaya from "./pages/KelasSaya";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
+
 
 function User() {
   return (
