@@ -23,7 +23,7 @@ const LoginPage = () => {
         const userRole = res.data.data.role;
         console.log("User Role:", userRole);
         // console.log('data :', token)
-        // Cookies.set("token", res.data.token);
+        Cookies.set("token", res.data.token);
         console.log("token", res.data.token);
         // Cookies.set("userData", JSON.stringify(res.data.data));
         console.log("berhasil login");

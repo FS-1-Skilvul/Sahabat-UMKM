@@ -1,4 +1,4 @@
-import { Link,useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../App.css";
 import Layout from "./Layout";
@@ -9,7 +9,6 @@ import axios from "axios";
 function AdminDashboard() {
   const [courses, setCourses] = useState([]);
   const token = Cookies.get("token");
-  const navigate = useNavigate();
   const fetchData = async () => {
     try {
       const response = await axios.get("https://backend-production-4c5b.up.railway.app/kelas", {
