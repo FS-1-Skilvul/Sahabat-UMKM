@@ -1,7 +1,7 @@
 import logo from "../assets/images/logo.png";
 import { navLandingLinks, navLoginLinks } from "../constants";
 import { useState } from "react";
-import React from "react";
+
 import { useLocation, useNavigate } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
 import { useAuth } from "../contexts/AuthContext";
