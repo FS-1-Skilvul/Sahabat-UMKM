@@ -1,6 +1,12 @@
 import { useState } from "react";
 import {  Link,useNavigate  } from "react-router-dom";
 import { FaSignOutAlt } from "react-icons/fa";
+import  Control from '../assets/images/control.png'
+import  List from '../assets/images/list.png'
+import  Transaksi from '../assets/images/transaks.png'
+import Logo from '../assets/images/Logo.png'
+import  User from '../assets/images/user.png'
+import  Category from '../assets/images/category.png'
 // import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
 import axios from "axios";
@@ -9,20 +15,12 @@ function SideBarAdmin() {
   const [open, setOpen] = useState();
   const token = Cookies.get("token");
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  // const { user } = useSelector((state) => state.auth);
-
-  // const logout = () => {
-  //   dispatch(LogOut());
-  //   dispatch(reset());
-  //   navigate("/");
-  // };
+ 
   const Menus = [
-    { title: "Kelas", src: "list", to: "/dataKelas" },
-    { title: "User", src: "user", to: "/userAdmin" },
-    { title: "Transaksi", src: "transaks", to: "/transaksi" },
-    { title: "Kategori Kelas", src: "category", to: "/kategori" },
+    { title: "Kelas", src: List, to: "/dataKelas" },
+    { title: "User", src: User, to: "/userAdmin" },
+    { title: "Transaksi", src: Transaksi, to: "/transaksi" },
+    { title: "Kategori Kelas", src: Category, to: "/kategori" },
     
   ];
  
@@ -54,13 +52,13 @@ function SideBarAdmin() {
       <div className="flex items-center">
         <div className={` ${open ? "w-72" : "w-20 "} bg-secondary h-screen p-5  pt-8 relative duration-300`}>
           <img
-            src="../src/assets/control.png"
+            src={Control}
             className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
            border-2 rounded-full  ${!open && "rotate-180"}`}
             onClick={() => setOpen(!open)}
           />
           <div className="flex gap-x-4 items-center">
-            <img src="../src/assets/images/logo.png" className={` `} />
+            <img src={Logo} className={` `} />
             <h1 className={`text-white origin-left font-medium text-xl duration-200 ${!open && "scale-0"}`}></h1>
           </div>
           <ul className="pt-6">
@@ -73,7 +71,8 @@ function SideBarAdmin() {
                 >
                 <Link to={Menu.to} onClick={() => setActiveMenu(Menu.to)} className="flex items-center gap-3 mt-4"> 
                 <button>
-                  <img src={`../src/assets/${Menu.src}.png`} className="w-8"  />
+                  <img src={Menu.src} className="w-8"  />
+           
                 </button>
                 <span className={`${!open && "hidden"} origin-left duration-200 font-semibold text-lg text-center`}>{Menu.title}</span>
 
