@@ -16,10 +16,32 @@ function FormAddClass() {
   const [detailPengajar, setDetailPengajar] = useState("");
   const [durasi, setDurasi] = useState("");
   const [rating, setRating] = useState("");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  const handleButtonClick = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleOptionClick = (value) => {
+    setIdKategori(value);
+    setDropdownOpen(false);
+  };
   const saveData = async (e) => {
     e.preventDefault();
-    if (!idKategori || idKategori === null || idKategori === undefined  || !namaKelas.trim() || !deskripsiKelas.trim() || !hargaKelas.trim() || !gambarKelas.trim() || !videoKelas.trim() || !pengajarKelas.trim() || !detailPengajar.trim() || !durasi.trim() || !rating.trim()) {
+    if (
+      !idKategori ||
+      idKategori === null ||
+      idKategori === undefined ||
+      !namaKelas.trim() ||
+      !deskripsiKelas.trim() ||
+      !hargaKelas.trim() ||
+      !gambarKelas.trim() ||
+      !videoKelas.trim() ||
+      !pengajarKelas.trim() ||
+      !detailPengajar.trim() ||
+      !durasi.trim() ||
+      !rating.trim()
+    ) {
       console.error("All fields are required");
       return;
     }
@@ -87,10 +109,12 @@ function FormAddClass() {
                   <div className="hs-dropdown relative inline-flex mb-4 sm:mb-8">
                     <button
                       id="hs-dropdown-default"
+                      onClick={handleButtonClick}
                       type="button"
                       className="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-white-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-white-700 dark:text-primary  dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-white-600"
                     >
                       {kategoriOptions.find((option) => option.value === idKategori)?.label || "Pilih Kategori"}
+
                       <svg
                         className="hs-dropdown-open:rotate-180 w-4 h-4"
                         xmlns="http://www.w3.org/2000/svg"
@@ -102,21 +126,28 @@ function FormAddClass() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        >
+                      >
                         <path d="m6 9 6 6 6-6" />
                       </svg>
-
                     </button>
-                    <div
+                    {/* <div
                       className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[15rem] bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
+                      aria-labelledby="hs-dropdown-default"
+                    > */}
+
+                    <div
+                      className={`hs-dropdown-menu transition-[opacity,margin] duration ${
+                        dropdownOpen ? "opacity-100" : "opacity-0"
+                      } hidden min-w-[15rem] bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full`}
                       aria-labelledby="hs-dropdown-default"
                     >
                       {kategoriOptions.map((option) => (
                         <a
                           key={option.value}
-                          value={idKategori}
-                          // onChange={(e) => setIdKategori(e.target.value)} 
-                          onClick={() => setIdKategori(option.value)}
+                          // value={idKategori}
+                          onClick={() => handleOptionClick(option.value)}
+                          // onClick={() => handleClick(option.value)},
+
                           className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700"
                           href="#"
                         >
@@ -199,14 +230,14 @@ function FormAddClass() {
                       Detail Pengajar
                     </label>
                     <textarea
-                        id="hs-feedback-post-comment-textarea-1"
-                        name="hs-feedback-post-comment-textarea-1"
-                        value={detailPengajar}
-                        onChange={(e) => setDetailPengajar(e.target.value)}
-                        rows="3"
-                        className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-gray-700 dark:text-black dark:focus:ring-gray-600"
-                        placeholder=""
-                      ></textarea>
+                      id="hs-feedback-post-comment-textarea-1"
+                      name="hs-feedback-post-comment-textarea-1"
+                      value={detailPengajar}
+                      onChange={(e) => setDetailPengajar(e.target.value)}
+                      rows="3"
+                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white-900 dark:border-gray-700 dark:text-black dark:focus:ring-gray-600"
+                      placeholder=""
+                    ></textarea>
                   </div>
                   <div className="mb-4 sm:mb-8">
                     <label htmlFor="hs-feedback-post-comment-email-1" className="block mb-2 text-sm font-medium dark:text-white">
