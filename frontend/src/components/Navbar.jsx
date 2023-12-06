@@ -11,7 +11,7 @@ function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const isLandingPage = location.pathname === "/"; // cek apakah membuka halaman landingpage
-const isTentangPage = location.pathname === "/tentang";
+
 
   const [activeNav, setActiveNav] = useState("Beranda");
   let [open, setOpen] = useState(false);

@@ -13,7 +13,6 @@ import EditKategori from "./pages/EditKategori";
 import EditDataKelas from "./pages/EditDataKelas";
 import TentangPage from "./pages/TentangPage";
 import User from "./RoutesUser";
-import CariKelas from "./components/CariKelas";
 import CariKelasPage from "./pages/CariKelasPage";
 
 function App() {
