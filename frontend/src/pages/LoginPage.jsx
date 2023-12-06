@@ -22,7 +22,7 @@ const LoginPage = () => {
         // Simpan token ke cookie
         const userRole = res.data.data.role;
         console.log("User Role:", userRole);
-        // console.log('data :', token)
+  
         Cookies.set("token", res.data.token);
         console.log("token", res.data.token);
         // Cookies.set("userData", JSON.stringify(res.data.data));
@@ -48,8 +48,8 @@ const LoginPage = () => {
   };
   return (
     <>
-      <div className="h-full">
-        <body className=" bg-gray-100 flex h-full items-center py-16">
+      <div className="h-full bg-gray-100 flex items-center py-16">
+        
           <main className="w-full max-w-md mx-auto p-6">
             <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm">
               <div className="p-4 sm:p-7">
@@ -138,7 +138,7 @@ const LoginPage = () => {
               </div>
             </div>
           </main>
-        </body>
+  
       </div>
     </>
   );

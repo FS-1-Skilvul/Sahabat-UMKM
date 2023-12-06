@@ -9,7 +9,11 @@ const Layout = ({ children }) => {
           <SideBarAdmin />
         </div>
         <div className="flex flex-col flex-1 w-full overflow-y-auto p-4">
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            <div className="div">
+            {children}
+            </div>
+           </main>
         </div>
       </div>
     </React.Fragment>
