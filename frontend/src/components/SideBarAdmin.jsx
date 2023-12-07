@@ -81,9 +81,7 @@ function SideBarAdmin() {
             ))}
           </ul>
             <FaSignOutAlt size={30} className="text-gray-400 flex mt-5 mx-2  rounded-md text-center cursor-pointer hover:bg-light-white  text-sm  gap-x-2 " onClick={logout}/>
-          {/* <button onClick={logout} className="button is-white">
-              <IoLogOut /> Logout
-            </button> */}
+        
         </div>
 
         {/* <IsiSideBarAdmin/> */}

@@ -7,14 +7,18 @@ import Navbar from "../components/Navbar";
 
 function TentangPage() {
 
-    // const handleAuth = () => {
-        
-    // }
+
+    const login = async () => {
+    let result = await axios.get(`https://backend-production-4c5b.up.railway.app/user/`, {withCredentials: true});
+    let { data} = result.data;
+    setAuth(data != null); //or conditional state
+  }
+  
   return (
     <>
-      <Navbar />
-      <div className="flex mt-20 padding-x items-center gap-20 w-auto ">
-        <img src="https://attendify.id/assets/img/landingpage/tentangkami2.png" className="object-contain  h-screen p-12   " alt="" />
+      <Navbar   />
+      <div className=" tentang-page flex mt-20 padding-x items-center gap-20 w-auto ">
+        <img src="https://attendify.id/assets/img/landingpage/tentangkami2.png" className="object-contain  h-screen p-12  " alt="" />
 
         <div className="tentang-isi">
           <h1 className="font-poppins text-3xl font-bold text-gray-800">Tentang Kami</h1>

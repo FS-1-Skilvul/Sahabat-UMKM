@@ -59,3 +59,39 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+.main-footer {
+  display: flex;
+  
+  /* flex-direction: column; */
+ }
+ 
+ @media (max-width: 768px) {
+  .main-footer {
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+      /* justify-content: space-evenly; */
+      /* justify-items: center; */
+      /* align-content: space-evenly; */
+      align-items: center;
+    
+  width:100%;
+  overflow-x: hidden;
+  /* justify-content: flex-end; */
+  /* justify-content: center; */
+  /* align-items: center; */
+    
+    grid-gap: 20px;
+  }
+  .tentang-page{
+    
+    width: 100%;
+    display: grid;
+  }
+ }
+ 
+ .main-footer li:hover{ 
+  cursor: pointer;
+  color: rgb(188, 175, 175);
+ }
+

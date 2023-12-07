@@ -4,9 +4,11 @@ import { FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-    <div className="flex md:flex-col">
+    <div className="">
+
+
       
-        <div className="main-footer py-10 px-5 flex justify-between  bg-secondary mt-20   text-white">
+        <div className="main-footer py-10 px-5 flex justify-between  bg-secondary mt-20   text-white ">
           <div className="flex flex-col gap-4 md:flex-col  ">
             <img src={Logo} className="w-40" alt="" />
             <p className="font-poppins text-sm leading-6">
@@ -24,7 +26,7 @@ const Footer = () => {
 
           <div className="flex flex-col">
             <h1 className="font-semibold font-poppins pb-4 text-lg">Menu</h1>
-            <ul className="flex flex-col gap-2 font-poppins text-sm">
+            <ul className="flex flex-col gap-2 font-poppins text-sm ">
               <li>Beranda</li>
               <li>Cari Kelas</li>
               <li>Mentor</li>
@@ -51,6 +53,7 @@ const Footer = () => {
           </div>
         </div>
     </div>
+
     </>
   );
 };

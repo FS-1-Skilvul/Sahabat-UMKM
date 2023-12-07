@@ -7,12 +7,13 @@ import { MdLogout } from "react-icons/md";
 import { useAuth } from "../contexts/AuthContext";
 
 function Navbar() {
+
+  
   const { logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const isLandingPage = location.pathname === "/"; // cek apakah membuka halaman landingpage
-
-
+  
   const [activeNav] = useState("Beranda");
   let [open, setOpen] = useState(false);
 
@@ -23,12 +24,19 @@ function Navbar() {
     setShowLogoutBox(!showLogoutBox);
   };
 
+
+ 
   const handleLogout = () => {
     console.log("Logging out...");
     logout();
     console.log("Logged out");
     navigate("/login");
   };
+
+
+  
+
+
   return (
     <>
       <header className="fixed top-0 left-0  w-full shadow-md z-50">
@@ -49,6 +57,7 @@ function Navbar() {
               open ? "top-20 " : "top-[-490px]"
             }`}
           >
+
 
             {!isLandingPage  // jika halaman landing page, render navbar untuk landing page
               ? navLoginLinks.map((link) => (
@@ -75,6 +84,7 @@ function Navbar() {
                     </a>
                   </li>
                 ))
+
                 }
           </ul>
           <div className="flex gap-2 leading-normal font-montserrat max-lg:hidden wide:mr-24 items-center">
