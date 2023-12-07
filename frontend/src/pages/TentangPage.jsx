@@ -7,9 +7,10 @@ import Navbar from "../components/Navbar";
 
 function TentangPage() {
 
+  // const [isAuth, setAuth] = useState(localStorage.getItem("isAuth") || false);
 
     const login = async () => {
-    let result = await axios.get(`https://backend-production-4c5b.up.railway.app/user/`, {withCredentials: true});
+    let result = await axios.get(`https://backend-production-4c5b.up.railway.app/login/`, {withCredentials: true});
     let { data} = result.data;
     setAuth(data != null); //or conditional state
   }

@@ -7,13 +7,12 @@ import { MdLogout } from "react-icons/md";
 import { useAuth } from "../contexts/AuthContext";
 
 function Navbar() {
-
-  
   const { logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const isLandingPage = location.pathname === "/"; // cek apakah membuka halaman landingpage
-  
+  const [isAuth, setAuth] = useState(localStorage.getItem("isAuth") || false);
+
   const [activeNav] = useState("Beranda");
   let [open, setOpen] = useState(false);
 
@@ -25,7 +24,11 @@ function Navbar() {
   };
 
 
- 
+  const login = async () => {
+    let result = await axios.get(`https://backend-production-4c5b.up.railway.app/user/`, {withCredentials: true});
+    let { data} = result.data;
+    setAuth(data != null); //or conditional state
+  }
   const handleLogout = () => {
     console.log("Logging out...");
     logout();
@@ -57,7 +60,6 @@ function Navbar() {
               open ? "top-20 " : "top-[-490px]"
             }`}
           >
-
 
             {!isLandingPage  // jika halaman landing page, render navbar untuk landing page
               ? navLoginLinks.map((link) => (
