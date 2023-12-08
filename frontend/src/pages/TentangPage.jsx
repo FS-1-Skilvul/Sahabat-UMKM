@@ -4,20 +4,40 @@ import { IoLocationSharp } from "react-icons/io5";
 import { TbMailFilled } from "react-icons/tb";
 import { IoCallSharp } from "react-icons/io5";
 import Navbar from "../components/Navbar";
+import React ,{useEffect, useState} from 'react';
 
 function TentangPage() {
 
+  const [isAuth, setAuth] = useState(false);
   // const [isAuth, setAuth] = useState(localStorage.getItem("isAuth") || false);
 
-    const login = async () => {
-    let result = await axios.get(`https://backend-production-4c5b.up.railway.app/login/`, {withCredentials: true});
-    let { data} = result.data;
-    setAuth(data != null); //or conditional state
-  }
+
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      try{
+        const result = await axios.get(`https://backend-production-4c5b.up.railway.app/login/`, {withCredentials: true});
+
+        const {data} = result.data;
+        setAuth (data != null);
+
+      }catch (error){
+        console.log("Error check authentication",error)
+      }
+    };
+    checkAuthentication();
+  },[])
+
+  //   const login = async () => {
+  //   let result = await axios.get(`https://backend-production-4c5b.up.railway.app/login/`, {withCredentials: true});
+  //   let { data} = result.data;
+  //   setAuth(data != null); //or conditional state
+  // }
   
   return (
     <>
-      <Navbar   />
+    {!isAuth && <Navbar  userType ="unauthenticated" />}
+
+  
       <div className=" tentang-page flex mt-20 padding-x items-center gap-20 w-auto ">
         <img src="https://attendify.id/assets/img/landingpage/tentangkami2.png" className="object-contain  h-screen p-12  " alt="" />
 

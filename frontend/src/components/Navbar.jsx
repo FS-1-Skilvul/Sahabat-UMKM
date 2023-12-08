@@ -10,7 +10,7 @@ function Navbar() {
   const { logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
-  const isLandingPage = location.pathname === "/"; // cek apakah membuka halaman landingpage
+  const isLandingPage = location.pathname === "/" ||  location.pathname === "/tentang"; // cek apakah membuka halaman landingpage
   const [isAuth, setAuth] = useState(localStorage.getItem("isAuth") || false);
 
   const [activeNav] = useState("Beranda");
