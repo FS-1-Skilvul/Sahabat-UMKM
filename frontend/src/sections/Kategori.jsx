@@ -6,8 +6,8 @@ const Kategori = () => {
     <section className="mt-20" id="mentor">
       <div className="flex flex-col py-10 padding-x   ">
         <div className="flex flex-col ">
-          <h1 className="font-poppins text-3xl text-primary font-bold">Eksplor Kursus Kamu Disini!</h1>
-          <p className="mt-2 font-poppins text-sm text-gray-500">Jelajahi kelas kami dengan menelusuri kategori kami, yang akan memudahkan Anda</p>
+          <h1 className="font-poppins text-3xl text-primary font-bold">Kategori Kursus</h1>
+          <p className="mt-2 font-poppins text-sm text-gray-500">Jelajahi 6 kategori yang tersedia di sahabat umkm</p>
         </div>
      <Kategori_Kelas/>
         

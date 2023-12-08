@@ -66,11 +66,11 @@ function EditKategori() {
                         <label htmlFor="nama-kategori" className="font-semibold mb-5">
                             Nama Kategori
                         </label>
-                        <input type="text" id="nama-kategori" className="input-field outline rounded-md h-10" value={namaKategori} onChange={(e) => setNamaKategori(e.target.value)} />
+                        <input type="text" id="nama-kategori" className="pl-3 input-field outline rounded-md h-10" value={namaKategori} onChange={(e) => setNamaKategori(e.target.value)} />
                         <label htmlFor="deskripsi-kelas" className="font-semibold my-5">
                             Deskripsi Kelas
                         </label>
-                        <textarea id="deskripsi-kelas" className="input-field outline" value={deskripsiKategori} onChange={(e) => setDeskripsiKategori(e.target.value)} />
+                        <input type="text" id="nama-kategori" className="pl-3 input-field outline rounded-md h-10" value={deskripsiKategori} onChange={(e) => setDeskripsiKategori(e.target.value)} />
                         <button type="submit" className="bg-green-600 hover:bg-green-700 w-[100px] p-2 text-white font-semibold rounded-lg  mt-5">
                             Save Edit
                         </button>

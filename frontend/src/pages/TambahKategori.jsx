@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 function TambahKategori() {
-    const [namaKategori, setNamaKategori] = useState("");
-    // const [deskripsiKelas, setDeskripsiKelas] = useState("");
     const navigate = useNavigate();
+    const [namaKategori, setNamaKategori] = useState("");
+    const [deskripsiKelas, setDeskripsiKelas] = useState("");
     const token = Cookies.get("token");
 
     const saveData = async (e) => {
@@ -20,6 +20,7 @@ function TambahKategori() {
 
         const formData = {
             nama_kategori: namaKategori,
+            deskripsi: deskripsiKelas
            
         };
 
@@ -33,7 +34,8 @@ function TambahKategori() {
             console.log(response);
             navigate("/kategori");
         } catch (error) {
-            console.error("Error saving data:", error);
+            console.error("Error saving data" ,error);
+
         }
     };
 
@@ -46,7 +48,11 @@ function TambahKategori() {
                         <label htmlFor="nama-kategori" className="font-semibold mb-5 ">
                             Nama Kategori
                         </label>
-                        <input type="text" id="nama-kategori" className="input-field outline rounded-sm h-11 w-72" value={namaKategori} onChange={(e) => setNamaKategori(e.target.value)} />
+                        <input type="text" id="nama-kategori" className="pl-2 input-field outline rounded-sm h-11 w-72" value={namaKategori} onChange={(e) => setNamaKategori(e.target.value)} />
+                        <label htmlFor="nama-kategori" className="font-semibold my-3 ">
+                            Deskripsi Kategori
+                        </label>
+                        <input type="text" id="nama-kategori" className=" pl-2 input-field outline rounded-sm h-11 w-72" value={deskripsiKelas} onChange={(e) => setDeskripsiKelas(e.target.value)} />
                         <button type="submit" className="button is-primary bg-primary mt-5 w-20 p-2 rounded-lg text-white">
                             Save
                         </button>

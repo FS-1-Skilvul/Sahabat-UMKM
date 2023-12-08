@@ -24,22 +24,13 @@ function Navbar() {
   };
 
 
-  const login = async () => {
-    let result = await axios.get(`https://backend-production-4c5b.up.railway.app/user/`, {withCredentials: true});
-    let { data} = result.data;
-    setAuth(data != null); //or conditional state
-  }
+
   const handleLogout = () => {
     console.log("Logging out...");
     logout();
     console.log("Logged out");
     navigate("/login");
   };
-
-
-  
-
-
   return (
     <>
       <header className="fixed top-0 left-0  w-full shadow-md z-50">

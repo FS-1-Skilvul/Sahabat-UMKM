@@ -78,6 +78,7 @@ function FormAddClass() {
     { value: 3, label: "3. Kewirausahaan" },
     { value: 4, label: "4. Pengembangan Diri" },
     { value: 5, label: "5. Desain Produk" },
+    { value: 6, label: "6. Pemasaran" },
   ];
 
   return (
